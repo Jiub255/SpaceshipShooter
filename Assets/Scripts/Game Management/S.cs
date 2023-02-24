@@ -7,6 +7,7 @@ public class S : MonoBehaviour
     public static S I { get; private set; }
 
     public InputManager IM { get; private set; }
+    public ObjectPool ObjectPool { get; private set; }
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class S : MonoBehaviour
         I = this;
 
         IM = GetComponentInChildren<InputManager>();
+        ObjectPool = GetComponentInChildren<ObjectPool>();
 
         DontDestroyOnLoad(gameObject);
     }
