@@ -4,9 +4,6 @@ class AAAAAAAAAAA
 	FIX:
 	----
 
-	EnemyCrash not working, just bumping into them without damage. 
-
-
 
 
 	TODO:

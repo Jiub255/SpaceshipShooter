@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class EnemyCrash : MonoBehaviour
 {
-    public static event Action OnCrashedIntoPlayer;
     [SerializeField]
     private int _crashDamage = 3;
     private Health _health;

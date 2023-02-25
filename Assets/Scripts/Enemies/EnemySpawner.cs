@@ -76,6 +76,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // Should never get here. 
+        Debug.LogWarning("ChooseRandomEnemy should never return null. Some problem with the cumulative probabilities."); 
         return null;
     }
 

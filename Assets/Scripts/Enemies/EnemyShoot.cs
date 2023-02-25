@@ -30,6 +30,8 @@ public class EnemyShoot : MonoBehaviour
         GameObject bullet = _objectPool.GetPooledObject(_enemyBulletPoolTag);
         if (bullet != null)
         {
+            Debug.Log("Bullet not null");
+
             bullet.SetActive(true);
             bullet.transform.position = transform.position;
         }

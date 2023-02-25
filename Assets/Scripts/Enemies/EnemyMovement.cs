@@ -6,6 +6,8 @@ public class EnemyMovement : MonoBehaviour
     private float _speed = 3f;
 	private Rigidbody2D _rb;
 
+    public float Speed { get { return _speed; } }
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();

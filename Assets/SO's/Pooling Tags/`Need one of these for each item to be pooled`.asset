@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71176d90e22b9194995b637691c6ce65, type: 3}
+  m_Name: '`Need one of these for each item to be pooled`'
+  m_EditorClassIdentifier: 
+  DetailedExplanation: 'Need to create a new PoolTagSO for each object you want to
+    be pooled. Also need to put a PoolTag script on the object and assign it that
+    same PoolTagSO. It''s a little more involved to set up, but it''s more flexible
+    than enums, and less error prone than strings. '

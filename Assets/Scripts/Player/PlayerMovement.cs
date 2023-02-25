@@ -8,17 +8,13 @@ public class PlayerMovement : MonoBehaviour
 	private Rigidbody2D _rb;
     private Vector2 _movement;
     private InputAction _moveAction;
-    private Camera _camera;
-
-    private float asdf;
+    //private Camera _camera;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _moveAction = S.I.IM.PC.Gameplay.Move;
-
-        _camera = Camera.main;
-        asdf = _camera.orthographicSize * _camera.aspect;
+       // _camera = Camera.main;
     }
 
     private void Update()
@@ -28,11 +24,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 nextPosition = _camera.WorldToViewportPoint(_rb.position + (_movement * _speed * Time.fixedDeltaTime));
-        nextPosition.x = Mathf.Clamp01(nextPosition.x/*, 0.05f, 0.95f*/);
-        nextPosition.y = Mathf.Clamp01(nextPosition.y/*, 0.15f, 0.85f*/);
-        Vector2 desiredPosition = _camera.ViewportToWorldPoint(nextPosition);
+        Vector2 desiredPosition = _rb.position + (_movement * _speed * Time.fixedDeltaTime);
 
         _rb.MovePosition(desiredPosition);
+
+        /*        Vector3 nextPosition = _camera.WorldToViewportPoint(_rb.position + (_movement * _speed * Time.fixedDeltaTime));
+                nextPosition.x = Mathf.Clamp01(nextPosition.x*//*, 0.05f, 0.95f*//*);
+                nextPosition.y = Mathf.Clamp01(nextPosition.y*//*, 0.15f, 0.85f*//*);
+                Vector2 desiredPosition = _camera.ViewportToWorldPoint(nextPosition);*/
     }
 }
