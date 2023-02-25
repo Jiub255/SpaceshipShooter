@@ -10,11 +10,13 @@ public class HUD : MonoBehaviour
 
 	private TemporaryLoot _temporaryLoot;
 
-    private void OnEnable()
+    private void Start()
     {
         _temporaryLoot = FindObjectOfType<TemporaryLoot>();
 
         Coin.OnCoinCollected += UpdateHUD;
+
+        UpdateHUD();
     }
 
     private void OnDisable()

@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6911563b7d8c1b4a8298e221065cfb4, type: 3}
-  m_Name: Ship Inventory SO
+  m_Name: Owned Ships SO
   m_EditorClassIdentifier: 
-  shipPrefabs: []
+  shipPrefabs:
+  - {fileID: 1153337135153191337, guid: 1ac5dce2accc8644e8f1eff5f338d7da, type: 3}

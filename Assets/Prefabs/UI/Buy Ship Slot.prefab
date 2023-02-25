@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 670661182663612574}
   - component: {fileID: 526940216963957400}
   m_Layer: 0
-  m_Name: Ship Slot
+  m_Name: Buy Ship Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,6 +188,7 @@ MonoBehaviour:
   _button: {fileID: 2410283578871903573}
   _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
   _shipInventorySO: {fileID: 11400000, guid: 4b55785578dd01c40bf5fea02c81e948, type: 2}
+  _shopShipsSO: {fileID: 11400000, guid: 44fc14c51e4cefc439f13efc90fa1b33, type: 2}
 --- !u!1 &8107306795862845049
 GameObject:
   m_ObjectHideFlags: 0

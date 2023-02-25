@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 166573382109306772}
   - component: {fileID: 166573382109306762}
   - component: {fileID: 166573382109306763}
+  - component: {fileID: 4542523363732163959}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -68,3 +69,16 @@ MonoBehaviour:
     Odds: 5
   _minTimeBetweenSpawns: 0.5
   _maxTimeBetweenSpawns: 2.5
+--- !u!114 &4542523363732163959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166573382109306774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f692f8d7fffa4458bd735a2c1ae5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentShipSO: {fileID: 11400000, guid: af0d06d75a815e6409b95ac09fbaa7a5, type: 2}

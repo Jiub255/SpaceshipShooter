@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 4490714683651394136}
   - component: {fileID: 4490714683651394137}
   - component: {fileID: 4490714683651394138}
+  - component: {fileID: 304691414}
   m_Layer: 0
   m_Name: HUD Canvas
   m_TagString: Untagged
@@ -346,6 +347,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &304691414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4490714683651394132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80149910bd289a4ab5fab5e024022ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _amountText: {fileID: 4490714683029403333}
+  _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
 --- !u!1 &4490714684666093278
 GameObject:
   m_ObjectHideFlags: 0

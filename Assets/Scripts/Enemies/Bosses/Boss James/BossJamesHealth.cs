@@ -1,4 +1,5 @@
 using System;
+using UnityEngine.SceneManagement;
 
 // Maybe just have a generic BossHealth : Health class? 
 public class BossJamesHealth : Health
@@ -17,5 +18,6 @@ public class BossJamesHealth : Health
         OnBossKilled?.Invoke();
 
         // Load shop menu scene. 
+        SceneManager.LoadScene("ShopScene");
     }
 }

@@ -3,13 +3,16 @@ using UnityEngine;
 public class ShipShopUI : MonoBehaviour
 {
     [SerializeField]
-    protected GameObject SlotPrefab;
+    private GameObject _slotPrefab;
 
     [SerializeField]
-    protected Transform SlotParent;
+    private Transform _slotParent;
 
     [SerializeField]
     private ShipInventorySO _shopShipsSO;
+
+    [SerializeField]
+    private ShipInventorySO _ownedShipsSO;
 
     private void OnEnable()
     {
@@ -22,23 +25,26 @@ public class ShipShopUI : MonoBehaviour
 
         foreach (GameObject shipPrefab in _shopShipsSO.shipPrefabs)
         {
-            GameObject slotInstance = Instantiate(SlotPrefab, SlotParent);
+            // Only display ships you don't own. 
+            if (!_ownedShipsSO.shipPrefabs.Contains(shipPrefab))
+            {
+                GameObject slotInstance = Instantiate(_slotPrefab, _slotParent);
 
-            slotInstance.transform.GetComponent<ShipSlot>().SetupSlot(shipPrefab);
+                slotInstance.transform.GetComponent<BuyShipSlot>().SetupSlot(shipPrefab);
+            }
+            // If an owned ship somehow ends up on the shop list, remove it. 
+            else
+            {
+                _shopShipsSO.shipPrefabs.Remove(shipPrefab);
+            }
         }
     }
 
     private void ClearShopMenu()
     {
-        foreach (Transform child in SlotParent)
+        foreach (Transform child in _slotParent)
         {
             Destroy(child.gameObject);
         }
-    }
-
-    public void StopShopping()
-    {
-        // Load Setup Scene (where you choose which ship to use, outfit it, etc.). 
-
     }
 }
