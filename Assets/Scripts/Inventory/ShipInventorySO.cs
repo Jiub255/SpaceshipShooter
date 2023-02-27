@@ -5,12 +5,12 @@ using UnityEngine;
     menuName = "Scriptable Objects/Ship Inventory SO")]
 public class ShipInventorySO : ScriptableObject
 {
-	public List<ShipOwned> ships = new List<ShipOwned>();
+	public List<ShipOwned> Ships = new List<ShipOwned>();
 }
 
 [System.Serializable]
 public class ShipOwned
 {
-    public GameObject shipPrefab;
-    public bool owned = false;
+    public GameObject ShipPrefab;
+    public bool Owned = false;
 }

@@ -13,18 +13,18 @@ public class SetupShipSlot : MonoBehaviour
 	private ShipOwned _ship;
 	private ShipInfo _shipInfo;
 
-	public void SetupSlot(ShipOwned shipPrefab)
+	public void SetupSlot(ShipOwned ship)
     {
-		_ship = shipPrefab;
-		_shipInfo = _ship.shipPrefab.GetComponentInChildren<ShipInfo>();
-		_icon.sprite = _shipInfo.Icon;
-		_icon.enabled = true;
-		_button.interactable = true;
+		_ship = ship;
+		_shipInfo = ship.ShipPrefab.GetComponentInChildren<ShipInfo>();
+		_icon.sprite = ship.ShipPrefab.GetComponent<SpriteRenderer>().sprite;
+		//_icon.enabled = true;
+		//_button.interactable = true;
     }
 
 	public void OnClickButton()
     {
 		// Set this as your "current ship". 
-		_currentShipSO.currentShipPrefab = _ship.shipPrefab;
+		_currentShipSO.currentShipPrefab = _ship.ShipPrefab;
     }
 }

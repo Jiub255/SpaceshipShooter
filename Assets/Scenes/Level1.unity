@@ -561,11 +561,13 @@ MonoBehaviour:
   - objectToPool: {fileID: 7890230800131586538, guid: 7f402ed92d75a634591b238216379f86, type: 3}
     amountToPool: 10
   - objectToPool: {fileID: 9016386260147634854, guid: 867d6ba372dca8a47a2afb06a9d31333, type: 3}
-    amountToPool: 10
+    amountToPool: 100
   - objectToPool: {fileID: 835237126318340448, guid: 655ae52d19b94c14d94b3e70db4848b5, type: 3}
     amountToPool: 10
   - objectToPool: {fileID: 3212059076453114651, guid: 490b6f554e29c0548aa8fec263031058, type: 3}
-    amountToPool: 5
+    amountToPool: 10
+  - objectToPool: {fileID: 7109008915127323027, guid: 6adbd59d1a0d26a48ba2b4d0f5ca1cc3, type: 3}
+    amountToPool: 10
   - objectToPool: {fileID: 693844423703596011, guid: a620361c94a093a458f07137b9745cb4, type: 3}
     amountToPool: 100
   - objectToPool: {fileID: 8836463876930405351, guid: 0885a1cd45449c241ae2e470b2ff30f0, type: 3}
@@ -577,6 +579,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 166573382109306762, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
+      propertyPath: _levelDuration
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 166573382109306772, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomStarBackground : MonoBehaviour
@@ -13,6 +14,16 @@ public class RandomStarBackground : MonoBehaviour
     private int _maxNumberOfStars = 200;
     [SerializeField, Range(0.01f, 1f)]
     private float _maxStarSize = 0.3f;
+    [SerializeField]
+    private List<Color> _colors = new List<Color>{
+        new Color(137f/255f, 95f/255f, 95f/255f), // Red 
+        new Color(146f/255f, 147f/255f, 100f/255f), // Yellow 
+        new Color(108f/255f, 152f/255f, 156f/255f), // Blue 
+        new Color(124f/255f, 81f/255f, 142f/255f), // Purple 
+        new Color(84f/255f, 140f/255f, 90f/255f), // Green 
+        new Color(255f/255f, 255f/255f, 255f/255f), // White 
+        new Color(255f/255f, 255f/255f, 255f/255f), // White 
+    };
 
     private Vector3[] _starPositions;
     private float _screenHeight;
@@ -117,18 +128,8 @@ public class RandomStarBackground : MonoBehaviour
 
     private Color RandomColor()
     {
-        int randomIndex = Random.Range(0, _colors.Length);
+        int randomIndex = Random.Range(0, _colors.Count);
 
         return _colors[randomIndex];
     }
-
-    private Color[] _colors = {
-        new Color(137f/255f, 95f/255f, 95f/255f), // Red 
-        new Color(146f/255f, 147f/255f, 100f/255f), // Yellow 
-        new Color(108f/255f, 152f/255f, 156f/255f), // Blue 
-        new Color(124f/255f, 81f/255f, 142f/255f), // Purple 
-        new Color(84f/255f, 140f/255f, 90f/255f), // Green 
-        new Color(255f/255f, 255f/255f, 255f/255f), // White 
-        new Color(255f/255f, 255f/255f, 255f/255f), // White 
-    };
 }

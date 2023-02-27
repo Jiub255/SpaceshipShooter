@@ -1,17 +1,25 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerShoot : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     [SerializeField]
     private PoolTagSO _bulletPoolTag;
 	[SerializeField]
 	private float _timeBetweenShots = 0.5f;
+    [SerializeField, TextArea(1,20)]
+    private string _description;
+
     private float _timer;
     private bool _shootHeldDown = false;
     private ObjectPool _objectPool;
 	private InputAction _shootAction;
     private Transform _transform;
+    private int _damage;
+
+    public string Description { get { return _description; } }
+    public int Damage { get { return _damage; } }
+    public float FireRate { get { return (1 / _timeBetweenShots); } }
 
     private void Start()
     {
@@ -23,6 +31,12 @@ public class PlayerShoot : MonoBehaviour
         _shootAction.canceled += ShootEnded;
         // Could do a more powerful shot after shoot held for a little bit. 
         //_shootAction.performed += PowerShot;
+
+        GameObject bullet = _objectPool.GetPooledObject(_bulletPoolTag);
+        if (bullet != null)
+        {
+            _damage = bullet.GetComponent<Bullet>().Damage;
+        }
     }
 
     private void OnDisable()

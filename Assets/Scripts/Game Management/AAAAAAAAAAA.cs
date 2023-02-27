@@ -4,19 +4,17 @@ class AAAAAAAAAAA
 	FIX:
 	----
 
-	Do a ShipOwned class with a GameObject shipPrefab and bool owned. Keep a list of those instead of just straight prefabs. 
-		Keeping the owned bool on the prefab wont work obviously. 
-
 	Make coins appear where the ship that dropped them is, not in center of screen. 
+
 
 
 	TODO:
 	-----
 
+
+
 	Prototype full level.
 		Timer? Certain number of enemies? 
-		Make boss fight at end.
-			Boss floats along with you instead of flying past. 
 		End level UI/screen.
 
 	Shop 
@@ -48,6 +46,9 @@ class AAAAAAAAAAA
 		Shake player ship when shooting, like recoil? 
 		Definitely screen shake when colliding with other enemies. 
 
+	Save System
+		Save level index, ships owned, coins, weapons owned, which weapons are on which ships, etc. 
+		Gameplay statistics, time played, kills, bullets shot, every stupid little stat. 
 
 ----------------------------------------------------------------------------
 

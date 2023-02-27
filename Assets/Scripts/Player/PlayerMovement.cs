@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private InputAction _moveAction;
     //private Camera _camera;
 
+    public float Speed { get { return _speed; } }
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();

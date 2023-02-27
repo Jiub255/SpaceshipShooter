@@ -315,16 +315,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 166573382109306762, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _levelDuration
-      value: 20.2
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
+      propertyPath: _enemyChances.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.data[0].Odds
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.data[1].Odds
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
+      propertyPath: _enemyChances.Array.data[2].Odds
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
+      propertyPath: _enemyChances.Array.data[2].EnemyPoolTag
+      value: 
+      objectReference: {fileID: 11400000, guid: b6b63591b071d7b409f94757e7c7a3b5, type: 2}
     - target: {fileID: 166573382109306772, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: m_RootOrder
       value: 1

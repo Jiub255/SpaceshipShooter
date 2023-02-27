@@ -12,6 +12,9 @@ public class SetupUI : MonoBehaviour
     [SerializeField]
 	private ShipInventorySO _shipsSO;
 
+    [SerializeField]
+    private GameplayStatisticsSO _gameplayStatisticsSO;
+
     private void OnEnable()
     {
         PopulateSetupMenu();
@@ -21,9 +24,9 @@ public class SetupUI : MonoBehaviour
     {
         ClearSetupMenu();
 
-        foreach (ShipOwned ship in _shipsSO.ships)
+        foreach (ShipOwned ship in _shipsSO.Ships)
         {
-            if (ship.owned)
+            if (ship.Owned)
             {
                 GameObject slotInstance = Instantiate(_slotPrefab, _slotParent);
 
@@ -40,9 +43,16 @@ public class SetupUI : MonoBehaviour
         }
     }
 
-    // TODO: Keep a currentLevel index, and increase it when you pass a level. 
     public void NextLevel()
     {
-        SceneManager.LoadScene("Level2");
+        if (_gameplayStatisticsSO.LevelIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(_gameplayStatisticsSO.LevelIndex);
+        }
+        else
+        {
+            // Game Over
+            Debug.Log("GAME OVER");
+        }
     }
 }

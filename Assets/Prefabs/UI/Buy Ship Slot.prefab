@@ -144,6 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670661182663612574}
   - component: {fileID: 526940216963957400}
+  - component: {fileID: 4403304407193524124}
   m_Layer: 0
   m_Name: Buy Ship Slot
   m_TagString: Untagged
@@ -170,7 +171,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526940216963957400
 MonoBehaviour:
@@ -188,6 +189,14 @@ MonoBehaviour:
   _button: {fileID: 2410283578871903573}
   _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
   _shipsSO: {fileID: 11400000, guid: 4b55785578dd01c40bf5fea02c81e948, type: 2}
+--- !u!222 &4403304407193524124
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7888045391298996096}
+  m_CullTransparentMesh: 1
 --- !u!1 &8107306795862845049
 GameObject:
   m_ObjectHideFlags: 0

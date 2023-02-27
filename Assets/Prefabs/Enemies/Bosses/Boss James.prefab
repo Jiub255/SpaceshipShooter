@@ -250,3 +250,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 7
+  _gameplayStatisticsSO: {fileID: 11400000, guid: 63a6061b2daf9e949bb762ee8870e112, type: 2}

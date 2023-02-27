@@ -5,18 +5,28 @@ public class ShopMenuManager : MonoBehaviour
 	[SerializeField]
 	private GameObject _shopCanvas;
 	[SerializeField]
-	private GameObject _setupCanvas;
+	private GameObject _chooseShipCanvas;
+	[SerializeField]
+	private GameObject _outfitShipCanvas;
 
     private void OnEnable()
     {
 		_shopCanvas.SetActive(true);
-		_setupCanvas.SetActive(false);
+		_chooseShipCanvas.SetActive(false);
+		_outfitShipCanvas.SetActive(false);
 	}
 
-    public void StopShopping()
+    public void GoToShipSelection()
 	{
-		// Open Setup Canvas (where you choose which ship to use, outfit it, etc.). 
 		_shopCanvas.SetActive(false);
-		_setupCanvas.SetActive(true);
+		_outfitShipCanvas.SetActive(false);
+		_chooseShipCanvas.SetActive(true);
 	}
+
+	public void GoToOutfitShip()
+    {
+		_shopCanvas.SetActive(false);
+		_chooseShipCanvas.SetActive(false);
+		_outfitShipCanvas.SetActive(true);
+    }
 }

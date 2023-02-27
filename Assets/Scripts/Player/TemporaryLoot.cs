@@ -25,6 +25,8 @@ public class TemporaryLoot : MonoBehaviour
 
     private void AddLootToSOs()
     {
-        _playerInfo.CoinsSO.Value = Coins;
+        Debug.Log($"Before coins: {_playerInfo.CoinsSO.Value}");
+        _playerInfo.CoinsSO.Value += Coins;
+        Debug.Log($"After coins: {_playerInfo.CoinsSO.Value}");
     }
 }

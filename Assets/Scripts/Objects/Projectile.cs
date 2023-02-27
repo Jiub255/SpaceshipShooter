@@ -9,6 +9,8 @@ public abstract class Projectile : MonoBehaviour
     public Vector2 Direction = Vector2.up;
     protected Rigidbody2D _rb;
 
+    public int Damage { get { return _damage; } }
+
     protected virtual void OnEnable()
     {
         _rb = GetComponent<Rigidbody2D>();

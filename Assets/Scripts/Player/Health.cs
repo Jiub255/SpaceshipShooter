@@ -4,19 +4,22 @@ public abstract class Health : MonoBehaviour
 {
 	[SerializeField]
 	protected int _maxHealth = 10;
-	protected int _health;
+	protected int _currentHealth;
+
+    public int MaxHealth { get { return _maxHealth; } }
+    public int CurrentHealth { get { return _currentHealth;} }
 
     protected virtual void Awake()
     {
-        _health = _maxHealth;
+        _currentHealth = _maxHealth;
     }
 
     public virtual void GetHurt(int damage)
     {
-        _health -= damage;
-        if (_health <= 0)
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
         {
-            _health = 0;
+            _currentHealth = 0;
             Die();
         }
     }

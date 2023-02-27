@@ -21,10 +21,10 @@ public class BuyShipSlot : MonoBehaviour
 	public void SetupSlot(ShipOwned ship)
     {
 		_ship = ship;
-		_shipInfo = _ship.shipPrefab.GetComponentInChildren<ShipInfo>();
-		_icon.sprite = _shipInfo.Icon;
-		_icon.enabled = true;
-		_button.interactable = true;
+		_shipInfo = _ship.ShipPrefab.GetComponentInChildren<ShipInfo>();
+		_icon.sprite = ship.ShipPrefab.GetComponent<SpriteRenderer>().sprite;
+		//_icon.enabled = true;
+		//_button.interactable = true;
     }
 
 	public void OnClickButton()
@@ -36,7 +36,7 @@ public class BuyShipSlot : MonoBehaviour
 			_coinsSO.Value -= _shipInfo.Cost;
 
 			// Set "Owned" to true. 
-			_ship.owned = true;
+			_ship.Owned = true;
 
 			// ShipShopUI.PopulateMenu(); 
 			OnBuyShip?.Invoke();

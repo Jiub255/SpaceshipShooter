@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6911563b7d8c1b4a8298e221065cfb4, type: 3}
+  m_Name: Ships SO
+  m_EditorClassIdentifier: 
+  Ships:
+  - ShipPrefab: {fileID: 1153337135153191337, guid: 1ac5dce2accc8644e8f1eff5f338d7da, type: 3}
+    Owned: 1
+  - ShipPrefab: {fileID: 1229078211271297662, guid: 38ec529df28c95f49a20095897df22c3, type: 3}
+    Owned: 0
+  - ShipPrefab: {fileID: 1549379053110367181, guid: 08c0c9f7e49c185459c70014aa8851aa, type: 3}
+    Owned: 0
+  - ShipPrefab: {fileID: 8426594654394514515, guid: 4d0066b62acbfeb45989920b6bcdf7a2, type: 3}
+    Owned: 0
+  - ShipPrefab: {fileID: 814549197272060641, guid: 099e36f9838162d4d89c50feda971010, type: 3}
+    Owned: 0
+  - ShipPrefab: {fileID: 7546383269920610222, guid: 75f9f5297ed243742ba878b9e90fbe13, type: 3}
+    Owned: 0

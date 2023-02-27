@@ -5,8 +5,8 @@ public class Coin : MonoBehaviour
 {
     public static event Action OnCoinCollected; 
 
-    [SerializeField]
-    private float _coinCollectRadius = 0.5f; 
+   // [SerializeField]
+    //private float _coinCollectRadius = 0.5f; 
     [SerializeField]
     private float _smoothTime = 0.3f;
     private Vector3 _velocity = Vector3.zero;
@@ -26,16 +26,16 @@ public class Coin : MonoBehaviour
     {
         if (_headedToPlayer)
         {
-            if (Vector3.Distance(_rb.position, _playerTransform.position) > _coinCollectRadius)
-            {
+            //if (Vector3.Distance(_rb.position, _playerTransform.position) > _coinCollectRadius)
+           // {
                 _rb.MovePosition(Vector3.SmoothDamp(_rb.position, _playerTransform.position, ref _velocity, _smoothTime));
-            }
-            else
+           // }
+/*            else
             {
                 _rb.MovePosition(_playerTransform.position);
 
                 CollectCoin(_playerTransform);
-            }
+            }*/
         }
         else
         {
@@ -56,6 +56,14 @@ public class Coin : MonoBehaviour
             // SmoothDamp to player position. 
             _headedToPlayer = true;
            //StartCoroutine(SmoothDampToPlayer(playerTransform));
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerMovement>())
+        {
+            CollectCoin(_playerTransform);
         }
     }
 

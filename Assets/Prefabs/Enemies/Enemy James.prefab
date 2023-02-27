@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90015288653f8434a90a5889c425cc25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _crashDamage: 3
+  _crashDamage: 2
 --- !u!114 &7104106864118284568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _coinPoolTag: {fileID: 11400000, guid: aff0a111fec07ff44a26e580feb0d9af, type: 2}
-  _numberOfCoinsDropped: 25
+  _numberOfCoinsDropped: 10
 --- !u!1 &1118826465784239484
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyBulletPoolTag: {fileID: 11400000, guid: 0fe1685e5d4c4944cbd81012cf42c4f5, type: 2}
-  _timeBetweenShots: 0.5
+  _timeBetweenShots: 1.5
 --- !u!1 &8364287160801460600
 GameObject:
   m_ObjectHideFlags: 0

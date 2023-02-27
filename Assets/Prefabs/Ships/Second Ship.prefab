@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480622061b9017d4b99ccb6f53db3f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 250
+  _maxHealth: 35
 --- !u!1 &1229078211477490948
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPoolTag: {fileID: 11400000, guid: 98d520b9a080df64e8ce540a78dc3efe, type: 2}
-  _timeBetweenShots: 0.4
+  _timeBetweenShots: 0.75
 --- !u!1 &1229078211926786967
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,10 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87195c4e7d9ac6e419baa50e551709c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Second Ship
-  _description: 'It works slightly better. Little slower too. '
-  _cost: 15
-  _icon: {fileID: 21300000, guid: 4bdc1f8dc4b7d7748964a5aa83265eae, type: 3}
+  _name: USS Sprout
+  _description: 'Second ship, slightly better than the first. '
+  _cost: 50
 --- !u!114 &1229078211926786960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1229078211929734547}
+  - component: {fileID: 2017811651785297092}
   m_Layer: 3
   m_Name: Guns
   m_TagString: Untagged
@@ -306,3 +306,15 @@ Transform:
   m_Father: {fileID: 1229078211271297656}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2017811651785297092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229078211929734544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4879fcfeea9fc95478da8297ab463a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

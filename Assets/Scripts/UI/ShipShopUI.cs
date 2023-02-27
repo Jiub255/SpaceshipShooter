@@ -27,9 +27,9 @@ public class ShipShopUI : MonoBehaviour
     {
         ClearShopMenu();
 
-        foreach (ShipOwned ship in _shipsSO.ships)
+        foreach (ShipOwned ship in _shipsSO.Ships)
         {
-            if (!ship.owned)
+            if (!ship.Owned)
             {
                 GameObject slotInstance = Instantiate(_slotPrefab, _slotParent);
 
