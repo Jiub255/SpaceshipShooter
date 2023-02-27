@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480622061b9017d4b99ccb6f53db3f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 150
+  _maxHealth: 15000
 --- !u!1 &1153337135380881107
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 1153337135839612993}
   - component: {fileID: 1153337135839612998}
   - component: {fileID: 1153337135839612999}
+  - component: {fileID: 2423843201179211651}
   m_Layer: 3
   m_Name: Player Info
   m_TagString: Untagged
@@ -278,9 +279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Starter Ship
   _description: 'It works. '
-  _icon: {fileID: 21300000, guid: d78a5faa39658c645ba6aa9cec189039, type: 3}
-  _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
   _cost: 10
+  _icon: {fileID: 21300000, guid: d78a5faa39658c645ba6aa9cec189039, type: 3}
 --- !u!114 &1153337135839612999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,3 +293,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b4f408ac97cc14a996ea4234f9d778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2423843201179211651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153337135839612992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d3c2f4502060142b90eecc12b25b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}

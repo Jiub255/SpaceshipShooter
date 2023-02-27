@@ -10,29 +10,21 @@ public class SetupShipSlot : MonoBehaviour
 	[SerializeField]
 	private CurrentShipSO _currentShipSO;
 
-	private GameObject _shipPrefab;
-	private PlayerInfo _playerInfo;
+	private ShipOwned _ship;
+	private ShipInfo _shipInfo;
 
-	public void SetupSlot(GameObject shipPrefab)
+	public void SetupSlot(ShipOwned shipPrefab)
     {
-		_shipPrefab = shipPrefab;
-		_playerInfo = _shipPrefab.GetComponentInChildren<PlayerInfo>();
-		_icon.sprite = _playerInfo.Icon;
+		_ship = shipPrefab;
+		_shipInfo = _ship.shipPrefab.GetComponentInChildren<ShipInfo>();
+		_icon.sprite = _shipInfo.Icon;
 		_icon.enabled = true;
 		_button.interactable = true;
-    }
-
-	public void ClearSlot()
-    {
-		_shipPrefab = null;
-		_icon.sprite = null;
-		_icon.enabled = false;
-		_button.interactable = false;
     }
 
 	public void OnClickButton()
     {
 		// Set this as your "current ship". 
-		_currentShipSO.currentShipPrefab = _shipPrefab;
+		_currentShipSO.currentShipPrefab = _ship.shipPrefab;
     }
 }

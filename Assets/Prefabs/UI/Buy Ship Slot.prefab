@@ -187,8 +187,7 @@ MonoBehaviour:
   _icon: {fileID: 5436100369289437397}
   _button: {fileID: 2410283578871903573}
   _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
-  _shipInventorySO: {fileID: 11400000, guid: 4b55785578dd01c40bf5fea02c81e948, type: 2}
-  _shopShipsSO: {fileID: 11400000, guid: 44fc14c51e4cefc439f13efc90fa1b33, type: 2}
+  _shipsSO: {fileID: 11400000, guid: 4b55785578dd01c40bf5fea02c81e948, type: 2}
 --- !u!1 &8107306795862845049
 GameObject:
   m_ObjectHideFlags: 0

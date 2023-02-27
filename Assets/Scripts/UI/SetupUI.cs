@@ -10,9 +10,8 @@ public class SetupUI : MonoBehaviour
     private Transform _slotParent;
 
     [SerializeField]
-	private ShipInventorySO _ownedShipsSO;
+	private ShipInventorySO _shipsSO;
 
-    // First, choose which ship. Use SetupSlot prefab similar to ShipSlot, but with a different button action. 
     private void OnEnable()
     {
         PopulateSetupMenu();
@@ -22,11 +21,14 @@ public class SetupUI : MonoBehaviour
     {
         ClearSetupMenu();
 
-        foreach (GameObject shipPrefab in _ownedShipsSO.shipPrefabs)
+        foreach (ShipOwned ship in _shipsSO.ships)
         {
-            GameObject slotInstance = Instantiate(_slotPrefab, _slotParent);
+            if (ship.owned)
+            {
+                GameObject slotInstance = Instantiate(_slotPrefab, _slotParent);
 
-            slotInstance.transform.GetComponent<SetupShipSlot>().SetupSlot(shipPrefab);
+                slotInstance.transform.GetComponent<SetupShipSlot>().SetupSlot(ship);
+            }
         }
     }
 
@@ -38,10 +40,7 @@ public class SetupUI : MonoBehaviour
         }
     }
 
-    // Second, choose which guns. 
-
-
-    // Load next level. 
+    // TODO: Keep a currentLevel index, and increase it when you pass a level. 
     public void NextLevel()
     {
         SceneManager.LoadScene("Level2");

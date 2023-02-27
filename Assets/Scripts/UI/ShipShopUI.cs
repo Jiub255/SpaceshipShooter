@@ -9,33 +9,31 @@ public class ShipShopUI : MonoBehaviour
     private Transform _slotParent;
 
     [SerializeField]
-    private ShipInventorySO _shopShipsSO;
-
-    [SerializeField]
-    private ShipInventorySO _ownedShipsSO;
+    private ShipInventorySO _shipsSO;
 
     private void OnEnable()
     {
         PopulateShopMenu();
+
+        BuyShipSlot.OnBuyShip += PopulateShopMenu;
+    }
+
+    private void OnDisable()
+    {
+        BuyShipSlot.OnBuyShip -= PopulateShopMenu;
     }
 
     private void PopulateShopMenu()
     {
         ClearShopMenu();
 
-        foreach (GameObject shipPrefab in _shopShipsSO.shipPrefabs)
+        foreach (ShipOwned ship in _shipsSO.ships)
         {
-            // Only display ships you don't own. 
-            if (!_ownedShipsSO.shipPrefabs.Contains(shipPrefab))
+            if (!ship.owned)
             {
                 GameObject slotInstance = Instantiate(_slotPrefab, _slotParent);
 
-                slotInstance.transform.GetComponent<BuyShipSlot>().SetupSlot(shipPrefab);
-            }
-            // If an owned ship somehow ends up on the shop list, remove it. 
-            else
-            {
-                _shopShipsSO.shipPrefabs.Remove(shipPrefab);
+                slotInstance.transform.GetComponent<BuyShipSlot>().SetupSlot(ship);
             }
         }
     }

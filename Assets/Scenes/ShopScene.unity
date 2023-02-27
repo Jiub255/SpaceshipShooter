@@ -1104,7 +1104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slotPrefab: {fileID: 7888045391298996096, guid: 98d3ea81a5145f74f978901a14113a3f, type: 3}
   _slotParent: {fileID: 1225078702}
-  _shopShipsSO: {fileID: 11400000, guid: 44fc14c51e4cefc439f13efc90fa1b33, type: 2}
+  _shipsSO: {fileID: 11400000, guid: 4b55785578dd01c40bf5fea02c81e948, type: 2}
 --- !u!1 &1175796212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,7 +1997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slotPrefab: {fileID: 671007021012716617, guid: 86132c845d10053409f97c9dad6f9693, type: 3}
   _slotParent: {fileID: 1181676374}
-  _ownedShipsSO: {fileID: 11400000, guid: 4b55785578dd01c40bf5fea02c81e948, type: 2}
+  _shipsSO: {fileID: 11400000, guid: 4b55785578dd01c40bf5fea02c81e948, type: 2}
 --- !u!114 &1899006331
 MonoBehaviour:
   m_ObjectHideFlags: 0

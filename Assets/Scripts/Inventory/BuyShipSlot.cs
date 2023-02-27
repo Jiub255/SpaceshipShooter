@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BuyShipSlot : MonoBehaviour
 {
+	public static event Action OnBuyShip;
+
 	[SerializeField]
 	private Image _icon;
 	[SerializeField]
@@ -10,46 +13,33 @@ public class BuyShipSlot : MonoBehaviour
 	[SerializeField]
 	private IntSO _coinsSO;
 	[SerializeField]
-	private ShipInventorySO _ownedShipsSO;
-	[SerializeField]
-	private ShipInventorySO _shopShipsSO;
+	private ShipInventorySO _shipsSO;
 
-	private GameObject _shipPrefab;
-	private PlayerInfo _playerInfo;
+	private ShipOwned _ship;
+	private ShipInfo _shipInfo;
 
-	public void SetupSlot(GameObject shipPrefab)
+	public void SetupSlot(ShipOwned ship)
     {
-		_shipPrefab = shipPrefab;
-		_playerInfo = _shipPrefab.GetComponentInChildren<PlayerInfo>();
-		_icon.sprite = _playerInfo.Icon;
+		_ship = ship;
+		_shipInfo = _ship.shipPrefab.GetComponentInChildren<ShipInfo>();
+		_icon.sprite = _shipInfo.Icon;
 		_icon.enabled = true;
 		_button.interactable = true;
     }
 
-	public void ClearSlot()
-    {
-		_shipPrefab = null;
-		_icon.sprite = null;
-		_icon.enabled = false;
-		_button.interactable = false;
-    }
-
 	public void OnClickButton()
     {
-		// If you have enough money, and don't already own the ship. 
-		if (_coinsSO.Value >= _playerInfo.Cost && !_ownedShipsSO.shipPrefabs.Contains(_shipPrefab))
+		// If you have enough money, 
+		if (_coinsSO.Value >= _shipInfo.Cost)
         {
 			// Pay the cost of the ship. 
-			_coinsSO.Value -= _playerInfo.Cost;
+			_coinsSO.Value -= _shipInfo.Cost;
 
-			// Add ship prefab to ship inventory SO. 
-			_ownedShipsSO.shipPrefabs.Add(_shipPrefab);
+			// Set "Owned" to true. 
+			_ship.owned = true;
 
-			// Remove ship prefab from shop ships SO. 
-			_shopShipsSO.shipPrefabs.Remove(_shipPrefab);
-
-			// Clear slot.  
-			ClearSlot();
+			// ShipShopUI.PopulateMenu(); 
+			OnBuyShip?.Invoke();
         }
         else
         {

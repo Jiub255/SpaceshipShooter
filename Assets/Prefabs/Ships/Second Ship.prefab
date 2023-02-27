@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 1229078211926786966}
   - component: {fileID: 1229078211926786961}
   - component: {fileID: 1229078211926786960}
+  - component: {fileID: 9198568128208029121}
   m_Layer: 3
   m_Name: Player Info
   m_TagString: Untagged
@@ -246,9 +247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Second Ship
   _description: 'It works slightly better. Little slower too. '
-  _icon: {fileID: 21300000, guid: 4bdc1f8dc4b7d7748964a5aa83265eae, type: 3}
-  _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
   _cost: 15
+  _icon: {fileID: 21300000, guid: 4bdc1f8dc4b7d7748964a5aa83265eae, type: 3}
 --- !u!114 &1229078211926786960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +261,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b4f408ac97cc14a996ea4234f9d778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9198568128208029121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229078211926786967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d3c2f4502060142b90eecc12b25b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
 --- !u!1 &1229078211929734544
 GameObject:
   m_ObjectHideFlags: 0

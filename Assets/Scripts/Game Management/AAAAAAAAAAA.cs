@@ -4,6 +4,10 @@ class AAAAAAAAAAA
 	FIX:
 	----
 
+	Do a ShipOwned class with a GameObject shipPrefab and bool owned. Keep a list of those instead of just straight prefabs. 
+		Keeping the owned bool on the prefab wont work obviously. 
+
+	Make coins appear where the ship that dropped them is, not in center of screen. 
 
 
 	TODO:
