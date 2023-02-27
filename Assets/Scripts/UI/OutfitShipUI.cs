@@ -27,15 +27,56 @@ public class OutfitShipUI : MonoBehaviour
     private TextMeshProUGUI _damage;
     [SerializeField]
     private TextMeshProUGUI _fireRate;
+    [SerializeField]
+    private Transform _weaponSelector;
 
-    private ShipInfo _shipInfo;
-    private int _index;
+    private int _weaponIndex;
+    private Weapons _weapons;
+    private int _slotIndex;
 
     private void OnEnable()
     {
-        _shipInfo = GetComponentInChildren<ShipInfo>();
+        _weapons = _currentShipSO.currentShipPrefab.GetComponentInChildren<Weapons>();
+        _weaponSelector.position = _weapons.WeaponPositions[0];
 
         InitializeMenu();
+        DisplayWeapon();
+    }
+
+    public void NextSlot()
+    {
+        _slotIndex++;
+        if (_slotIndex >= _weapons.WeaponPositions.Count)
+        {
+            _slotIndex = 0;
+        }
+    }
+
+    public void PreviousSlot()
+    {
+        _slotIndex--;
+        if (_slotIndex < 0)
+        {
+            _slotIndex = _weapons.WeaponPositions.Count - 1;
+        }
+    }
+
+    public void NextWeapon()
+    {
+        _weaponIndex++;
+        if (_weaponIndex >= _weaponsSO.weaponPrefabs.Count)
+        {
+            _weaponIndex = 0;
+        }
+    }
+
+    public void PreviousWeapon()
+    {
+        _weaponIndex--;
+        if (_weaponIndex < 0)
+        {
+            _weaponIndex = _weaponsSO.weaponPrefabs.Count - 1;
+        }
     }
 
     private void InitializeMenu()
@@ -45,7 +86,7 @@ public class OutfitShipUI : MonoBehaviour
 
     private void DisplayWeapon()
     {
-        Weapon weapon = _weaponsSO.weaponPrefabs[_index].GetComponent<Weapon>();
+        Weapon weapon = _weaponsSO.weaponPrefabs[_weaponIndex].GetComponent<Weapon>();
 
         _weaponName.text = weapon.gameObject.name;
         _weaponDescription.text = weapon.Description;
