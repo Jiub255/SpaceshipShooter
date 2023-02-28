@@ -73,7 +73,7 @@ public class ShopUI : MonoBehaviour
 
     private void DisplayShip()
     {
-        ShipInfo shipInfo = _shipsSO.Ships[_index].ShipPrefab.GetComponentInChildren<ShipInfo>();
+        ShipInfo shipInfo = _shipsSO.Ships[_index].ShipPrefab.GetComponent<ShipInfo>();
 
         _shipName.text = shipInfo.Name;
         _description.text = shipInfo.Description;
@@ -87,13 +87,13 @@ public class ShopUI : MonoBehaviour
             _cost.text = $"COST: {shipInfo.Cost.ToString()}";
             _buyButton.SetActive(true);
         }
-        _defense.text = $"DEFENSE: {_shipsSO.Ships[_index].ShipPrefab.GetComponent<PlayerHealth>().MaxHealth}";
-        _speed.text = $"SPEED: {_shipsSO.Ships[_index].ShipPrefab.GetComponent<PlayerMovement>().Speed}";
+        _defense.text = $"DEFENSE: {shipInfo.MaxHealth}";
+        _speed.text = $"SPEED: {shipInfo.Speed}";
     }
 
     public void BuyShip()
     {
-        ShipInfo shipInfo = _shipsSO.Ships[_index].ShipPrefab.GetComponentInChildren<ShipInfo>();
+        ShipInfo shipInfo = _shipsSO.Ships[_index].ShipPrefab.GetComponent<ShipInfo>();
 
         // If you have enough money, 
         if (_coinsSO.Value >= shipInfo.Cost)

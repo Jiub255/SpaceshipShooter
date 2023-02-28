@@ -40,6 +40,7 @@ public class ShipButton : MonoBehaviour
 	public void OnClickButton()
 	{
 		// Set ship in display window. 
+		// Heard by ChooseShipUI. 
 		OnClickShipButton?.Invoke(_index);
 	}
 }

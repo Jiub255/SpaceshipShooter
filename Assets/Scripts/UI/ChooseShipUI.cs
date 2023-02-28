@@ -71,15 +71,16 @@ public class ChooseShipUI : MonoBehaviour
 
     private void DisplayShip()
     {
-        ShipInfo shipInfo = _shipsSO.Ships[_index].ShipPrefab.GetComponentInChildren<ShipInfo>();
+        ShipInfo shipInfo = _shipsSO.Ships[_index].ShipPrefab.GetComponent<ShipInfo>();
 
         _shipName.text = shipInfo.Name;
         _description.text = shipInfo.Description;
         _shipIcon.sprite = _shipsSO.Ships[_index].ShipPrefab.GetComponent<SpriteRenderer>().sprite;
-        _defense.text = $"DEFENSE: {_shipsSO.Ships[_index].ShipPrefab.GetComponent<PlayerHealth>().MaxHealth}";
-        _speed.text = $"SPEED: {_shipsSO.Ships[_index].ShipPrefab.GetComponent<PlayerMovement>().Speed}";
+        _defense.text = $"DEFENSE: {shipInfo.MaxHealth}";
+        _speed.text = $"SPEED: {shipInfo.Speed}";
     }
 
+    // Called from UI button. 
     public void SelectShip()
     {
         _currentShipSO.currentShipPrefab = _shipsSO.Ships[_index].ShipPrefab;

@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Ship Inventory SO",
-    menuName = "Scriptable Objects/Ship Inventory SO")]
+[CreateAssetMenu(fileName = "New Ships SO",
+    menuName = "Scriptable Objects/Ships SO")]
 public class ShipsSO : ScriptableObject
 {
 	public List<ShipOwned> Ships = new List<ShipOwned>();

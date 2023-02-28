@@ -11,16 +11,21 @@ public class ShopMenuManager : MonoBehaviour
 
     private void OnEnable()
     {
+		GoToShopMenu();
+	}
+
+	public void GoToShopMenu()
+    {
 		_shopCanvas.SetActive(true);
 		_chooseShipCanvas.SetActive(false);
 		_outfitShipCanvas.SetActive(false);
-	}
+    }
 
     public void GoToShipSelection()
 	{
 		_shopCanvas.SetActive(false);
-		_outfitShipCanvas.SetActive(false);
 		_chooseShipCanvas.SetActive(true);
+		_outfitShipCanvas.SetActive(false);
 	}
 
 	public void GoToOutfitShip()

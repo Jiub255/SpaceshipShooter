@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f5d5ed0ee2e974c99aa4852646b920, type: 3}
   m_Name: Current Ship SO
   m_EditorClassIdentifier: 
-  currentShipPrefab: {fileID: 1153337135153191337, guid: 1ac5dce2accc8644e8f1eff5f338d7da, type: 3}
+  currentShipPrefab: {fileID: 8260698076699787087, guid: c86b0939c7ff02042bab78890bf63ffd, type: 3}

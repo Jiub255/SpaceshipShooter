@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -27,20 +25,25 @@ public class OutfitShipUI : MonoBehaviour
     private TextMeshProUGUI _fireRate;
 
     [SerializeField, Header("Left Side Ship Display")]
-    private Image _shipImage;
+    private Transform _shipMenuParent;
     [SerializeField]
     private GameObject _weaponSlotPrefab;
 
-    private int _weaponIndex;
-    private WeaponPositions _weapons;
-    private int _slotIndex;
-    private List<WeaponSlot> _weaponSlots;
+    private GameObject _shipMenuPrefab;
     private List<GameObject> _ownedWeapons;
+    private int _weaponIndex;
+    private List<WeaponSlot> _weaponSlots;
+    private int _slotIndex;
+
+    public List<GameObject> OwnedWeapons { get { return _ownedWeapons; } }
+    public int WeaponIndex { get { return _weaponIndex; } }
 
     private void OnEnable()
     {
-        _weapons = _currentShipSO.currentShipPrefab.GetComponentInChildren<WeaponPositions>();
+        // Get the ship menu prefab from the current ship SO. 
+        _shipMenuPrefab = _currentShipSO.currentShipPrefab.GetComponent<ShipInfo>().MenuPrefab;
 
+        // Make a list of all owned weapons, so this foreach loop isn't necessary every time the index changes. 
         foreach (WeaponOwned weapon in _weaponsSO.Weapons)
         {
             if (weapon.Owned)
@@ -55,57 +58,67 @@ public class OutfitShipUI : MonoBehaviour
 
     private void InitializeMenu()
     {
-        _shipImage.sprite = _currentShipSO.currentShipPrefab.GetComponent<SpriteRenderer>().sprite;
-        
-        // TODO: Instantiate ship menu prefab instead, with GO children at the weapon slot positions. 
+        // Instantiate ship menu prefab. 
+        GameObject shipMenuInstance = Instantiate(_shipMenuPrefab, _shipMenuParent);
+        shipMenuInstance.transform.localPosition = Vector3.zero;
 
-        // Instantiate weapon slots at menu positions. 
-/*        foreach (GameAndMenuPosition gameAndMenuPosition in _weapons.GameAndMenuPositions)
+        // Instantiate (and deactivate) weapon slots. 
+        foreach (Transform slotPosition in shipMenuInstance.transform)
         {
-            // Will this instantiate at MenuPosition in world space or relative to its parent?
-            // GameObject weaponSlot = Instantiate(_weaponSlotPrefab, gameAndMenuPosition.MenuPosition, Quaternion.identity, _shipImage.transform);
-            GameObject weaponSlot = Instantiate(_weaponSlotPrefab, _shipImage.transform);
-            weaponSlot.transform.localPosition = gameAndMenuPosition.MenuPosition;
+            GameObject slotObject = Instantiate(_weaponSlotPrefab, slotPosition.position, Quaternion.identity);
+            WeaponSlot weaponSlot = slotObject.GetComponent<WeaponSlot>();
+            _weaponSlots.Add(weaponSlot);
+            weaponSlot.SetupSlot(this);
+            slotObject.SetActive(false);
+        }
 
-            _weaponSlots.Add(weaponSlot.GetComponent<WeaponSlot>());
-        }*/
+        // Activate the first slot (there should always be at least one). 
+        _weaponSlots[0].gameObject.SetActive(true);
     }
 
     public void DisplayWeapon()
     {
-        //Weapon weapon = _weaponsSO.Weapons[_weaponIndex].WeaponPrefab.GetComponent<Weapon>();
         Weapon weapon = _ownedWeapons[_weaponIndex].GetComponent<Weapon>();
 
-        _weaponName.text = weapon.gameObject.name;
+        _weaponName.text = weapon.Name;
         _weaponDescription.text = weapon.Description;
         _weaponImage.sprite = weapon.GetComponent<SpriteRenderer>().sprite;
         _damage.text = $"DAMAGE: {weapon.Damage}";
         _fireRate.text = $"FIRE RATE: {weapon.FireRate}";
     }
 
-    // Move these four methods to WeaponSlot? Probably. 
+    // Next four methods called by WeaponSlot class, and those methods get called by
+    // the four buttons on the weapon slot. 
     public void NextSlot()
     {
+        // Deactivate current slot. 
+        _weaponSlots[_slotIndex].gameObject.SetActive(false);
+
+        // Increment index. 
         _slotIndex++;
-        if (_slotIndex >= _weapons.GameAndMenuPositions.Count)
+        if (_slotIndex >= _weaponSlots.Count)
         {
             _slotIndex = 0;
         }
-        // Deactivate all slots. 
 
-        // Activate current index slot. 
+        // Activate new current slot. 
+        _weaponSlots[_slotIndex].gameObject.SetActive(true);
     }
 
     public void PreviousSlot()
     {
+        // Deactivate current slot. 
+        _weaponSlots[_slotIndex].gameObject.SetActive(false);
+
+        // Increment index. 
         _slotIndex--;
         if (_slotIndex < 0)
         {
-            _slotIndex = _weapons.GameAndMenuPositions.Count - 1;
+            _slotIndex = _weaponSlots.Count - 1;
         }
-        // Deactivate all slots. 
 
-        // Activate current index slot. 
+        // Activate new current slot. 
+        _weaponSlots[_slotIndex].gameObject.SetActive(true);
     }
 
     public void NextWeapon()
@@ -128,6 +141,7 @@ public class OutfitShipUI : MonoBehaviour
         DisplayWeapon();
     }
 
+    // Called from UI button. 
     public void NextLevel()
     {
         if (_gameplayStatisticsSO.LevelIndex < SceneManager.sceneCountInBuildSettings)

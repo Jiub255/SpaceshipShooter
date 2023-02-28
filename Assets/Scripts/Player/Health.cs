@@ -11,6 +11,10 @@ public abstract class Health : MonoBehaviour
 
     protected virtual void Awake()
     {
+        if (GetComponent<ShipInfo>() != null)
+        {
+            _maxHealth = GetComponent<ShipInfo>().MaxHealth;
+        }
         _currentHealth = _maxHealth;
     }
 

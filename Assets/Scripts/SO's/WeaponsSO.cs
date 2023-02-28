@@ -8,6 +8,7 @@ public class WeaponsSO : ScriptableObject
     public List<WeaponOwned> Weapons = new();
 }
 
+[System.Serializable]
 public class WeaponOwned
 {
     public GameObject WeaponPrefab;

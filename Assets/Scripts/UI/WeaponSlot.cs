@@ -1,72 +1,45 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponSlot : MonoBehaviour
 {
-    [SerializeField]
-    private WeaponsSO _weaponsSO;
-
-    private int _weaponIndex;
-    private WeaponPositions _weapons;
-    private int _slotIndex;
     private OutfitShipUI _outfitShipUI;
+    private Image _weaponImage;
 
     public void SetupSlot(OutfitShipUI outfitShipUI)
     {
         _outfitShipUI = outfitShipUI;
+        _weaponImage = GetComponent<Image>();
     }
 
+    // These get called from the buttons on the weapon slot.
+    // The outfitShipUI ones change the index which this class references. 
     public void NextSlot()
     {
-        _slotIndex++;
-        if (_slotIndex >= _weapons.GameAndMenuPositions.Count)
-        {
-            _slotIndex = 0;
-        }
-        // Deactivate all slots. 
-
-        // Activate current index slot. 
+        _outfitShipUI.NextSlot();
     }
 
     public void PreviousSlot()
     {
-        _slotIndex--;
-        if (_slotIndex < 0)
-        {
-            _slotIndex = _weapons.GameAndMenuPositions.Count - 1;
-        }
-        // Deactivate all slots. 
-
-        // Activate current index slot. 
+        _outfitShipUI.PreviousSlot();
     }
 
     public void NextWeapon()
     {
-        _weaponIndex++;
-        if (_weaponIndex >= _weaponsSO.Weapons.Count)
-        {
-            _weaponIndex = 0;
-        }
         // Displays weapon in the little selector on the left and the big display on the right. 
+        _outfitShipUI.NextWeapon();
         DisplayWeapon();
-        _outfitShipUI.DisplayWeapon();
     }
 
     public void PreviousWeapon()
     {
-        _weaponIndex--;
-        if (_weaponIndex < 0)
-        {
-            _weaponIndex = _weaponsSO.Weapons.Count - 1;
-        }
+        _outfitShipUI.PreviousWeapon();
         DisplayWeapon();
-        _outfitShipUI.DisplayWeapon();
     }
 
     private void DisplayWeapon()
     {
-        throw new NotImplementedException();
+        GameObject weapon = _outfitShipUI.OwnedWeapons[_outfitShipUI.WeaponIndex];
+        _weaponImage.sprite = weapon.GetComponent<SpriteRenderer>().sprite;
     }
 }
