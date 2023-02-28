@@ -9,7 +9,7 @@ public class ShipShopUI : MonoBehaviour
     private Transform _slotParent;
 
     [SerializeField]
-    private ShipInventorySO _shipsSO;
+    private ShipsSO _shipsSO;
 
     private void OnEnable()
     {

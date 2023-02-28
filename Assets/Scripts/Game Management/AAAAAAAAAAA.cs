@@ -4,14 +4,22 @@ class AAAAAAAAAAA
 	FIX:
 	----
 
+	Instead of setting the ship image sprite in the outfit menu, instantiate a whole object, with weapon positions and everything all ready. 
+		Can store that prefab on the ShipInfo. 
+
 	Make coins appear where the ship that dropped them is, not in center of screen. 
+
+	Standardize sizes/positions/pivots for everything. Player ships, guns, weapon slot. Don't worry about enemies, they can be unique. 
+		It'll make the menu way easier, plus it'll be less likely to break at different resolutions. 
+		
+		Ships fit into a 256x256 square. Pivot where you want its center to be in the menu. 
+		Gun fit into a 32x64 rectangle. Pivot on the very bottom middle, where it will attach to the ship. 
+		Weapon slot slightly bigger than gun. Pivot so it lines up with gun/ship. Near the bottom. 
 
 
 
 	TODO:
 	-----
-
-
 
 	Prototype full level.
 		Timer? Certain number of enemies? 

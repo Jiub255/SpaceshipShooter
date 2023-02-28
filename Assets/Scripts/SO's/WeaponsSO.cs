@@ -5,5 +5,11 @@ using UnityEngine;
     menuName = "Scriptable Objects/Weapons SO")]
 public class WeaponsSO : ScriptableObject
 {
-    public List<GameObject> weaponPrefabs = new List<GameObject>();
+    public List<WeaponOwned> Weapons = new();
+}
+
+public class WeaponOwned
+{
+    public GameObject WeaponPrefab;
+    public bool Owned = false;
 }

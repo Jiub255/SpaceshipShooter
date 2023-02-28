@@ -10,7 +10,7 @@ public class SetupUI : MonoBehaviour
     private Transform _slotParent;
 
     [SerializeField]
-	private ShipInventorySO _shipsSO;
+	private ShipsSO _shipsSO;
 
     [SerializeField]
     private GameplayStatisticsSO _gameplayStatisticsSO;

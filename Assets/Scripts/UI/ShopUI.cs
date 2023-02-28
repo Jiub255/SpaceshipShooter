@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ShopUI : MonoBehaviour
 {
     [SerializeField]
-    private ShipInventorySO _shipsSO;
+    private ShipsSO _shipsSO;
     [SerializeField]
     private IntSO _coinsSO;
 
