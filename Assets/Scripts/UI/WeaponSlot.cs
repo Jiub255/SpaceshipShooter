@@ -1,15 +1,57 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class WeaponSlot : MonoBehaviour
 {
     private OutfitShipUI _outfitShipUI;
     private Image _weaponImage;
+    private InputAction _moveAction;
+
+    private void OnEnable()
+    {
+        S.I.IM.PC.Gameplay.Move.performed += HandleDirectionInput;
+    }
+
+    private void OnDisable()
+    {
+        S.I.IM.PC.Gameplay.Move.performed -= HandleDirectionInput;
+    }
 
     public void SetupSlot(OutfitShipUI outfitShipUI)
     {
         _outfitShipUI = outfitShipUI;
         _weaponImage = GetComponent<Image>();
+    }
+
+    private void HandleDirectionInput(InputAction.CallbackContext obj)
+    {
+        Debug.Log("HandleDirectionInput called");
+        // UP
+        if (obj.ReadValue<Vector2>().y > 0.5)
+        {
+            NextWeapon();
+        }
+        // DOWN
+        else if (obj.ReadValue<Vector2>().y < -0.5)
+        {
+            PreviousWeapon();
+        }
+        // RIGHT
+        else if (obj.ReadValue<Vector2>().x > 0.5)
+        {
+            NextSlot();
+        }
+        // LEFT
+        else if (obj.ReadValue<Vector2>().x < -0.5)
+        {
+            PreviousSlot();
+        }
+        else
+        {
+            Debug.Log("Direction Input: " + obj.ReadValue<Vector2>());
+        }
     }
 
     // These get called from the buttons on the weapon slot.
@@ -29,17 +71,12 @@ public class WeaponSlot : MonoBehaviour
         // Displays weapon in the little selector on the left and the big display on the right. 
         _outfitShipUI.NextWeapon();
         DisplayWeapon();
-
-        // TODO: Need to set the WeaponIndex on this slot as well. 
-
     }
 
     public void PreviousWeapon()
     {
         _outfitShipUI.PreviousWeapon();
         DisplayWeapon();
-        
-        // TODO: Need to set the WeaponIndex on this slot as well. 
     }
 
     private void DisplayWeapon()

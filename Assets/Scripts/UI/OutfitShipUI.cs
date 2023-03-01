@@ -142,7 +142,8 @@ public class OutfitShipUI : MonoBehaviour
             _weaponIndex = 0;
         }
         DisplayWeapon();
-        // TODO: Need to set the WeaponIndex on this slot as well. 
+
+        // Set the WeaponIndex on current slot. 
         _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex = _weaponIndex;
     }
 
@@ -154,7 +155,7 @@ public class OutfitShipUI : MonoBehaviour
             _weaponIndex = _ownedWeapons.Count - 1;
         }
         DisplayWeapon();
-        // TODO: Need to set the WeaponIndex on this slot as well. 
+        // Set the WeaponIndex on current slot. 
         _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex = _weaponIndex;
     }
 

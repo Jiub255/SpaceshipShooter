@@ -57,7 +57,7 @@ public class DataPersistenceManager : MonoBehaviour
         dataPersistenceObjects = FindAllDataPersistenceObjects();
         Debug.Log(dataPersistenceObjects.Count.ToString());
 
-        // Start up the autosave coroutine
+        // Start up the autosave coroutine. 
         if (autoSaveCoroutine != null)
         {
             StopCoroutine(autoSaveCoroutine);
@@ -71,11 +71,11 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void DeleteProfileData(string profileID)
     {
-        // Delete the data for this profile ID
+        // Delete the data for this profile ID. 
         dataHandler.Delete(profileID);
-        // Initialize the selected profile ID
+        // Initialize the selected profile ID. 
         InitializeSelectedProfileID();
-        // Reload the game so that our data matches the newly selected profile ID
+        // Reload the game so that the data matches the newly selected profile ID. 
         LoadGame();
     }
 
@@ -88,7 +88,7 @@ public class DataPersistenceManager : MonoBehaviour
     {
         gameData = new GameData();
 
-        // Push the loaded data to all other scripts that need it.
+        // Push the loaded data to all other scripts that need it. 
         foreach (IDataPersistence dataPersistenceObject in dataPersistenceObjects)
         {
             dataPersistenceObject.LoadData(gameData);
@@ -98,20 +98,20 @@ public class DataPersistenceManager : MonoBehaviour
     }
 
     // Have this return loaded GameData so SaveSlotsMenu and MainMenu can load the 
-    // current saved scene
+    // current saved scene. 
     public GameData LoadGame()
     {
-        // Load any saved data from a file using the data handler.
+        // Load any saved data from a file using the data handler. 
         gameData = dataHandler.Load(selectedProfileID);
 
-        // If no data can be loaded, warn player.
+        // If no data can be loaded, warn player. 
         if (gameData == null)
         {
             Debug.Log("No data was found. Start a new game.");
             return null;
         }
 
-        // Push the loaded data to all other scripts that need it.
+        // Push the loaded data to all other scripts that need it. 
         foreach (IDataPersistence dataPersistenceObject in dataPersistenceObjects)
         {
             dataPersistenceObject.LoadData(gameData);
@@ -122,23 +122,23 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
-        // If no data can be saved, warn player.
+        // If no data can be saved, warn player. 
         if (gameData == null)
         {
             Debug.Log("No data was found. Start a new game.");
             return;
         }
 
-        // Pass the data to other scripts so they can update it.
+        // Pass the data to other scripts so they can update it. 
         foreach (IDataPersistence dataPersistenceObject in dataPersistenceObjects)
         {
             dataPersistenceObject.SaveData(gameData);
         }
 
-        // Timestamp the data so we know when it was last saved
+        // Timestamp the data to keep track of when it was last saved. 
         gameData.LastUpdated = System.DateTime.Now.ToBinary();
 
-        // Save that data to a file using the data handler.
+        // Save that data to a file using the data handler. 
         dataHandler.Save(gameData, selectedProfileID);
     }
 
@@ -148,18 +148,18 @@ public class DataPersistenceManager : MonoBehaviour
     }
 
     // Have this return loaded GameData so SaveSlotsMenu and MainMenu can load the 
-    // current saved scene
+    // current saved scene. 
     public GameData ChangeSelectedProfileID(string newProfileID)
     {
-        // Update the profile to use for saving and loading
+        // Update the profile to use for saving and loading. 
         selectedProfileID = newProfileID;
-        // Load the game, which will use that profile, updating our game data accordingly
+        // Load the game, which will use that profile, updating the game data accordingly. 
         return LoadGame();
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()
     {
-        // FindObjectsOfType takes in an optional boolean to include inactive gameobjects
+        // FindObjectsOfType takes in an optional boolean to include inactive gameobjects. 
         IEnumerable<IDataPersistence> dataPersistenceObjects = 
             FindObjectsOfType<MonoBehaviour>(true).OfType<IDataPersistence>();
 
