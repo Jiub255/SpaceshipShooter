@@ -4,6 +4,14 @@ class AAAAAAAAAAA
 	FIX:
 	----
 
+	After buying a ship, buy button stays there. Need to refresh UI after buying. 
+	Set up buy weapons tab on the shop menu. 
+	Combine the select ship and select weapon screens eventually. Get them both working on their own first. 
+
+	Issue with how coins are dropped. Causing lag with a mere 50. Clearly doing something very wrong. 
+
+	Setup player weapons on PlayerShipInstantiator. 
+
 	Instead of setting the ship image sprite in the outfit menu, instantiate a whole object, with weapon positions and everything all ready. 
 		Can store that prefab on the ShipInfo. 
 
@@ -11,7 +19,7 @@ class AAAAAAAAAAA
 
 	Standardize sizes/positions/pivots for everything. Player ships, guns, weapon slot. Don't worry about enemies, they can be unique. 
 		It'll make the menu way easier, plus it'll be less likely to break at different resolutions. 
-		
+	
 		Ships fit into a 256x256 square. Pivot where you want its center to be in the menu. 
 		Gun fit into a 32x64 rectangle. Pivot on the very bottom middle, where it will attach to the ship. 
 		Weapon slot slightly bigger than gun. Pivot so it lines up with gun/ship. Near the bottom. 
@@ -20,6 +28,9 @@ class AAAAAAAAAAA
 
 	TODO:
 	-----
+
+
+	Break up each "piece" of UI into its own class? And make prefabs that have that class and instantiate them with a UI manager?
 
 	Prototype full level.
 		Timer? Certain number of enemies? 

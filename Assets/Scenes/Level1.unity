@@ -579,10 +579,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 166573382109306762, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
-      propertyPath: _levelDuration
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 166573382109306772, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -683,6 +679,18 @@ PrefabInstance:
     - target: {fileID: 3219840304614231937, guid: 3cf68cacfeebfd246962ee92fdaaa3c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219840304614231938, guid: 3cf68cacfeebfd246962ee92fdaaa3c3, type: 3}
+      propertyPath: _colors.Array.data[3].b
+      value: 0.4811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219840304614231938, guid: 3cf68cacfeebfd246962ee92fdaaa3c3, type: 3}
+      propertyPath: _colors.Array.data[3].g
+      value: 0.31999823
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219840304614231938, guid: 3cf68cacfeebfd246962ee92fdaaa3c3, type: 3}
+      propertyPath: _colors.Array.data[3].r
+      value: 0.43358436
       objectReference: {fileID: 0}
     - target: {fileID: 3219840304614231939, guid: 3cf68cacfeebfd246962ee92fdaaa3c3, type: 3}
       propertyPath: m_Name

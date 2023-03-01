@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a4a9b3023110f948ac04939a10d2f0c, type: 3}
-  m_Name: Weapons SO
+  m_Name: All Weapons List SO
   m_EditorClassIdentifier: 
   Weapons:
   - WeaponPrefab: {fileID: 4479617334806618876, guid: 14265efbc4d804e43a0d3df172e61879, type: 3}

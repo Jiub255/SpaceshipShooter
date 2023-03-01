@@ -29,12 +29,17 @@ public class WeaponSlot : MonoBehaviour
         // Displays weapon in the little selector on the left and the big display on the right. 
         _outfitShipUI.NextWeapon();
         DisplayWeapon();
+
+        // TODO: Need to set the WeaponIndex on this slot as well. 
+
     }
 
     public void PreviousWeapon()
     {
         _outfitShipUI.PreviousWeapon();
         DisplayWeapon();
+        
+        // TODO: Need to set the WeaponIndex on this slot as well. 
     }
 
     private void DisplayWeapon()

@@ -3,7 +3,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Ships SO",
     menuName = "Scriptable Objects/Ships SO")]
-public class ShipsSO : ScriptableObject
+public class AllShipsListSO : ScriptableObject
 {
 	public List<ShipOwned> Ships = new List<ShipOwned>();
 }

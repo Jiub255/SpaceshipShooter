@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ChooseShipUI : MonoBehaviour
 {
     [SerializeField]
-    private ShipsSO _shipsSO;
+    private AllShipsListSO _shipsSO;
     [SerializeField]
     private IntSO _coinsSO;
     [SerializeField]
@@ -33,6 +33,8 @@ public class ChooseShipUI : MonoBehaviour
     private void OnEnable()
     {
         PopulateShopMenu();
+        _index = 0;
+        DisplayShip();
 
         ShipButton.OnClickShipButton += SetShip;
     }
@@ -45,7 +47,7 @@ public class ChooseShipUI : MonoBehaviour
     private void SetShip(int index)
     {
         _index = index;
-        // Pass index or keep variable?
+
         DisplayShip();
     }
 

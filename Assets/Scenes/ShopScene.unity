@@ -1670,9 +1670,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1925288987}
-        m_TargetAssemblyTypeName: ShopMenuManager, Assembly-CSharp
-        m_MethodName: GoToOutfitShip
+      - m_Target: {fileID: 1682245325}
+        m_TargetAssemblyTypeName: ChooseShipUI, Assembly-CSharp
+        m_MethodName: SelectShip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1682,9 +1682,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1682245325}
-        m_TargetAssemblyTypeName: ChooseShipUI, Assembly-CSharp
-        m_MethodName: SelectShip
+      - m_Target: {fileID: 1925288987}
+        m_TargetAssemblyTypeName: ShopMenuManager, Assembly-CSharp
+        m_MethodName: GoToOutfitShip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3598,7 +3598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e492356e12b424eb8682033ad3aa0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shipsSO: {fileID: 11400000, guid: 4b55785578dd01c40bf5fea02c81e948, type: 2}
+  _shipsSO: {fileID: 11400000, guid: fbee02510bb230f48a6740f14036d275, type: 2}
   _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
   _currentShipSO: {fileID: 11400000, guid: af0d06d75a815e6409b95ac09fbaa7a5, type: 2}
   _shipButtonPrefab: {fileID: 5710815660897534458, guid: 7dff8893f6cd24649b4c975a29ea9d41, type: 3}
@@ -4416,7 +4416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972a7644b2d31284da3c342d334410ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shipsSO: {fileID: 11400000, guid: 4b55785578dd01c40bf5fea02c81e948, type: 2}
+  _shipsSO: {fileID: 11400000, guid: fbee02510bb230f48a6740f14036d275, type: 2}
   _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
   _shipButtonPrefab: {fileID: 5710815660897534458, guid: 7dff8893f6cd24649b4c975a29ea9d41, type: 3}
   _buttonParent: {fileID: 1631017120}

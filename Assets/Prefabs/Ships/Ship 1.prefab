@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2031079931806458634}
   - component: {fileID: 2002555095698476710}
   m_Layer: 3
-  m_Name: Test New Ship Structure 2
+  m_Name: Ship 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3169e80a84fb6244ca2e309ce460423d, type: 3}
-  m_Color: {r: 1, g: 0.5269487, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -167,12 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponPositions:
-  - Position: {x: 1.561, y: 0.157, z: 0}
-    WeaponIndex: 0
-  - Position: {x: 0, y: 0.25, z: 0}
-    WeaponIndex: 0
-  - Position: {x: -1.561, y: 0.157, z: 0}
-    WeaponIndex: 0
+  - {fileID: 11400000, guid: 815523609de4edb4e9fd9465e7eaff1e, type: 2}
+  - {fileID: 11400000, guid: 45d36684a4273524db8743928d2197aa, type: 2}
+  - {fileID: 11400000, guid: 8c7b71ad4b4bd0844bbadb7e837c0ae5, type: 2}
 --- !u!114 &54566708557848707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,12 +182,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87195c4e7d9ac6e419baa50e551709c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: USS James
+  _name: USS Sprout
   _description: 'Second ship, slightly better than the first. '
-  _speed: 25
-  _maxHealth: 55
-  _cost: 10
-  _menuPrefab: {fileID: 5410532141278313921, guid: 035ac70f3c92a064babd14c11032e410, type: 3}
+  _speed: 10
+  _maxHealth: 10
+  _cost: 5
+  _menuPrefab: {fileID: 5410532141278313921, guid: 276d7afe34d383641b11e63b98a396ff, type: 3}
 --- !u!114 &2031079931806458634
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class BuyShipSlot : MonoBehaviour
 	[SerializeField]
 	private IntSO _coinsSO;
 	[SerializeField]
-	private ShipsSO _shipsSO;
+	private AllShipsListSO _shipsSO;
 
 	private ShipOwned _ship;
 	private ShipInfo _shipInfo;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ShopUI : MonoBehaviour
 {
     [SerializeField]
-    private ShipsSO _shipsSO;
+    private AllShipsListSO _shipsSO;
     [SerializeField]
     private IntSO _coinsSO;
 
@@ -35,6 +35,8 @@ public class ShopUI : MonoBehaviour
     private void OnEnable()
     {
         PopulateShopMenu();
+        _index = 0;
+        DisplayShip();
 
         ShipButton.OnClickShipButton += SetShip;
     }
@@ -54,7 +56,7 @@ public class ShopUI : MonoBehaviour
     public void NextShip()
     {
         _index++;
-        if (_index > 5)
+        if (_index >= _shipsSO.Ships.Count)
         {
             _index = 0;
         }
@@ -66,7 +68,7 @@ public class ShopUI : MonoBehaviour
         _index--;
         if (_index < 0)
         {
-            _index = 5;
+            _index = _shipsSO.Ships.Count - 1;
         }
         DisplayShip();
     }

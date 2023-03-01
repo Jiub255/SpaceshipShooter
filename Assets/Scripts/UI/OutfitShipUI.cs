@@ -11,7 +11,7 @@ public class OutfitShipUI : MonoBehaviour
     [SerializeField]
     private GameplayStatisticsSO _gameplayStatisticsSO;
     [SerializeField]
-    private WeaponsSO _weaponsSO;
+    private AllWeaponsListSO _weaponsSO;
 
     [SerializeField, Header("Right Side Weapon Display")]
     private Image _weaponImage;
@@ -30,18 +30,23 @@ public class OutfitShipUI : MonoBehaviour
     private GameObject _weaponSlotPrefab;
 
     private GameObject _shipMenuPrefab;
-    private List<GameObject> _ownedWeapons;
+    private List<GameObject> _ownedWeapons = new();
     private int _weaponIndex;
-    private List<WeaponSlot> _weaponSlots;
+    private List<WeaponSlot> _weaponSlots = new();
     private int _slotIndex;
+    private WeaponAndGamePositions _weaponAndGamePositions;
 
     public List<GameObject> OwnedWeapons { get { return _ownedWeapons; } }
     public int WeaponIndex { get { return _weaponIndex; } }
 
     private void OnEnable()
     {
+        _weaponIndex = 0;
+        _slotIndex = 0;
+
         // Get the ship menu prefab from the current ship SO. 
         _shipMenuPrefab = _currentShipSO.currentShipPrefab.GetComponent<ShipInfo>().MenuPrefab;
+        _weaponAndGamePositions = _currentShipSO.currentShipPrefab.GetComponent<WeaponAndGamePositions>();
 
         // Make a list of all owned weapons, so this foreach loop isn't necessary every time the index changes. 
         foreach (WeaponOwned weapon in _weaponsSO.Weapons)
@@ -62,10 +67,18 @@ public class OutfitShipUI : MonoBehaviour
         GameObject shipMenuInstance = Instantiate(_shipMenuPrefab, _shipMenuParent);
         shipMenuInstance.transform.localPosition = Vector3.zero;
 
-        // Instantiate (and deactivate) weapon slots. 
+        List<Vector3> slotPositions = new();
         foreach (Transform slotPosition in shipMenuInstance.transform)
         {
-            GameObject slotObject = Instantiate(_weaponSlotPrefab, slotPosition.position, Quaternion.identity);
+            slotPositions.Add(slotPosition.localPosition);
+        }
+
+        // Instantiate (and deactivate) weapon slots. 
+        foreach (Vector3 slotPosition in slotPositions)
+        {
+            GameObject slotObject = Instantiate(_weaponSlotPrefab, shipMenuInstance.transform);
+            slotObject.transform.localPosition = slotPosition;
+
             WeaponSlot weaponSlot = slotObject.GetComponent<WeaponSlot>();
             _weaponSlots.Add(weaponSlot);
             weaponSlot.SetupSlot(this);
@@ -129,6 +142,8 @@ public class OutfitShipUI : MonoBehaviour
             _weaponIndex = 0;
         }
         DisplayWeapon();
+        // TODO: Need to set the WeaponIndex on this slot as well. 
+        _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex = _weaponIndex;
     }
 
     public void PreviousWeapon()
@@ -139,6 +154,8 @@ public class OutfitShipUI : MonoBehaviour
             _weaponIndex = _ownedWeapons.Count - 1;
         }
         DisplayWeapon();
+        // TODO: Need to set the WeaponIndex on this slot as well. 
+        _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex = _weaponIndex;
     }
 
     // Called from UI button. 
