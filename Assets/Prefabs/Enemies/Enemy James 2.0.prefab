@@ -240,6 +240,7 @@ MonoBehaviour:
   _maxHealth: 5
   _coinPoolTag: {fileID: 11400000, guid: aff0a111fec07ff44a26e580feb0d9af, type: 2}
   _numberOfCoinsDropped: 25
+  _coinSpreadRadius: 1
 --- !u!1 &5987315599763315459
 GameObject:
   m_ObjectHideFlags: 0

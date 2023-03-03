@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: All Ships List SO
   m_EditorClassIdentifier: 
   Ships:
-  - ShipPrefab: {fileID: 8260698076699787087, guid: c86b0939c7ff02042bab78890bf63ffd, type: 3}
+  - ShipPrefab: {fileID: 9204311017149374041, guid: 1aa14abc3b29ce94f9274d6075516ba1, type: 3}
     Owned: 1
+  - ShipPrefab: {fileID: 8260698076699787087, guid: c86b0939c7ff02042bab78890bf63ffd, type: 3}
+    Owned: 0
   - ShipPrefab: {fileID: 8260698076699787087, guid: 879d777d094f3364985ea590ae5924ca, type: 3}
     Owned: 0

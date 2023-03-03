@@ -14,14 +14,14 @@ public class HUD : MonoBehaviour
     {
         _temporaryLoot = FindObjectOfType<TemporaryLoot>();
 
-        Coin.OnCoinCollected += UpdateHUD;
+        CoinCollector.OnCoinCollected += UpdateHUD;
 
         UpdateHUD();
     }
 
     private void OnDisable()
     {
-        Coin.OnCoinCollected -= UpdateHUD;
+        CoinCollector.OnCoinCollected -= UpdateHUD;
     }
 
     public void UpdateHUD()

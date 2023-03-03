@@ -8,12 +8,16 @@ public class PlayerShipInstantiator : MonoBehaviour
     [SerializeField]
     private AllWeaponsListSO _allWeaponsSO;
 
-    private WeaponAndGamePositions _weaponInfo;
+    //private WeaponAndGamePositions _weaponInfo;
     private List<GameObject> _ownedWeapons = new();
+
+    private PlayerInfo _playerInfo;
 
     private void Awake()
     {
-        _weaponInfo = _currentShipSO.currentShipPrefab.GetComponent<WeaponAndGamePositions>();
+        _playerInfo = _currentShipSO.currentShipPrefab.GetComponent<PlayerInfo>();
+
+        //_weaponInfo = _currentShipSO.currentShipPrefab.GetComponent<WeaponAndGamePositions>();
 
         float y = Camera.main.orthographicSize * -0.5f;
         Vector3 startingPosition = new Vector3(0f, y, 0f);
@@ -28,12 +32,16 @@ public class PlayerShipInstantiator : MonoBehaviour
             }
         }
 
-        foreach (WeaponAndGamePositionSO weaponPositionSO in _weaponInfo.WeaponPositions)
+        foreach (WeaponAndGamePosition weaponAndGamePosition in _playerInfo.WeaponAndGamePositionsSO.WeaponAndGamePositions)
+        {
+            GameObject weaponInstance = Instantiate(_ownedWeapons[weaponAndGamePosition.WeaponIndex], shipInstance.transform);
+            weaponInstance.transform.localPosition = weaponAndGamePosition.GamePosition;
+        }
+
+/*        foreach (WeaponAndGamePositionSO weaponPositionSO in _weaponInfo.WeaponPositions)
         {
             GameObject weaponInstance = Instantiate(_ownedWeapons[weaponPositionSO.WeaponIndex], shipInstance.transform);
             weaponInstance.transform.localPosition = weaponPositionSO.Position; 
-            // Is this using the same index as the owned weapons list? YES FIX
-            //GameObject weaponInstance = Instantiate(_allWeaponsSO.Weapons[weaponPositionSO.WeaponIndex].WeaponPrefab, shipInstance.transform);
-        }
+        }*/
     }
 }

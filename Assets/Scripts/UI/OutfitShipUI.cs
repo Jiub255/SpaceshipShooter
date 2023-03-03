@@ -34,8 +34,10 @@ public class OutfitShipUI : MonoBehaviour
     private int _weaponIndex;
     private List<WeaponSlot> _weaponSlots = new();
     private int _slotIndex;
-    private WeaponAndGamePositions _weaponAndGamePositions;
+    //private WeaponAndGamePositions _weaponAndGamePositions;
     private GameObject _shipMenuInstance;
+
+    private PlayerInfo _playerInfo;
 
     public List<GameObject> OwnedWeapons { get { return _ownedWeapons; } }
     public int WeaponIndex { get { return _weaponIndex; } }
@@ -43,12 +45,14 @@ public class OutfitShipUI : MonoBehaviour
 
     private void OnEnable()
     {
+        _playerInfo = _currentShipSO.currentShipPrefab.GetComponent<PlayerInfo>();
+
         _weaponIndex = 0;
         _slotIndex = 0;
 
         // Get the ship menu prefab from the current ship SO. 
         _shipMenuPrefab = _currentShipSO.currentShipPrefab.GetComponent<ShipInfo>().MenuPrefab;
-        _weaponAndGamePositions = _currentShipSO.currentShipPrefab.GetComponent<WeaponAndGamePositions>();
+       // _weaponAndGamePositions = _currentShipSO.currentShipPrefab.GetComponent<WeaponAndGamePositions>();
 
         // Make a list of all owned weapons, so this foreach loop isn't necessary every time the index changes. 
         foreach (WeaponOwned weapon in _weaponsSO.Weapons)
@@ -72,11 +76,11 @@ public class OutfitShipUI : MonoBehaviour
         _shipMenuInstance.transform.localPosition = Vector3.zero;
 
         // Instantiate weapon slots and set weapon sprites. 
-        for (int i = 0; i < /*_shipMenuInstance.transform.childCount*/_weaponAndGamePositions.WeaponPositions.Count; i++)
+        for (int i = 0; i < /*_weaponAndGamePositions*/_playerInfo.WeaponAndGamePositionsSO.WeaponAndGamePositions.Count; i++)
         {
             // Set weapon sprite. 
             _shipMenuInstance.transform.GetChild(i).GetComponent<Image>().sprite = 
-                _ownedWeapons[_weaponAndGamePositions.WeaponPositions[i].WeaponIndex].GetComponent<SpriteRenderer>().sprite;
+                _ownedWeapons[/*_weaponAndGamePositions*/_playerInfo.WeaponAndGamePositionsSO.WeaponAndGamePositions[i].WeaponIndex].GetComponent<SpriteRenderer>().sprite;
 
             // Instantiate weapon slot. 
             GameObject slotObject = Instantiate(_weaponSlotPrefab, _shipMenuInstance.transform);
@@ -121,7 +125,7 @@ public class OutfitShipUI : MonoBehaviour
         }
 
         // Get weapon index of new slot. 
-        _weaponIndex = _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex;
+        _weaponIndex = /*_weaponAndGamePositions*/_playerInfo.WeaponAndGamePositionsSO.WeaponAndGamePositions[_slotIndex].WeaponIndex;
         DisplayWeapon();
 
         // Activate new current slot. 
@@ -141,7 +145,7 @@ public class OutfitShipUI : MonoBehaviour
         }
 
         // Get weapon index of new slot. 
-        _weaponIndex = _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex;
+        _weaponIndex = /*_weaponAndGamePositions*/_playerInfo.WeaponAndGamePositionsSO.WeaponAndGamePositions[_slotIndex].WeaponIndex;
         DisplayWeapon();
 
         // Activate new current slot. 
@@ -158,7 +162,8 @@ public class OutfitShipUI : MonoBehaviour
         DisplayWeapon();
 
         // Set the WeaponIndex on current slot. 
-        _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex = _weaponIndex;
+        /*_weaponAndGamePositions*/
+        _playerInfo.WeaponAndGamePositionsSO.WeaponAndGamePositions[_slotIndex].WeaponIndex = _weaponIndex;
 
         // Set the weapon sprite. 
         _shipMenuInstance.transform.GetChild(_slotIndex).GetComponent<Image>().sprite =
@@ -175,7 +180,8 @@ public class OutfitShipUI : MonoBehaviour
         DisplayWeapon();
 
         // Set the WeaponIndex on current slot. 
-        _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex = _weaponIndex;
+        /*_weaponAndGamePositions*/
+        _playerInfo.WeaponAndGamePositionsSO.WeaponAndGamePositions[_slotIndex].WeaponIndex = _weaponIndex;
 
         // Set the weapon sprite. 
         _shipMenuInstance.transform.GetChild(_slotIndex).GetComponent<Image>().sprite =

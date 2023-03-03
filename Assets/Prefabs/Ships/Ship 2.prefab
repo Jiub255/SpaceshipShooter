@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8260698076699787076}
   - component: {fileID: 8260698076699787083}
   - component: {fileID: 8260698076699787077}
-  - component: {fileID: 1501114129584396108}
   - component: {fileID: 54566708557848707}
   - component: {fileID: 2031079931806458634}
   - component: {fileID: 2002555095698476710}
@@ -154,22 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 35
---- !u!114 &1501114129584396108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8260698076699787087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4879fcfeea9fc95478da8297ab463a01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WeaponPositions:
-  - {fileID: 11400000, guid: 56b42aee8543dba49ba0305aabada2ed, type: 2}
-  - {fileID: 11400000, guid: 33f6f052b137e4e47bc85c11871dcc15, type: 2}
-  - {fileID: 11400000, guid: a9af00196d74e324d9c030fd43cbc215, type: 2}
 --- !u!114 &54566708557848707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
+  _weaponAndGamePositionsSO: {fileID: 11400000, guid: cb1ff87e292807f48b8920088bfe6ea0, type: 2}
 --- !u!114 &2002555095698476710
 MonoBehaviour:
   m_ObjectHideFlags: 0

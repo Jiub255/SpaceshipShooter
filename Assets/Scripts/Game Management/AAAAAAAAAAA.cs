@@ -4,9 +4,9 @@ class AAAAAAAAAAA
 	FIX:
 	----
 
-	Combine the select ship and select weapon screens eventually. Get them both working on their own first. 
+	Coins dropping is causing way too much lag. Need to redo that system from scratch. 
 
-	Issue with how coins are dropped. Causing lag with a mere 50. Clearly doing something very wrong. 
+	Combine the select ship and select weapon screens eventually. Get them both working on their own first. 
 
 	Standardize sizes/positions/pivots for everything. Player ships, guns, weapon slot. Don't worry about enemies, they can be unique. 
 		It'll make the menu way easier, plus it'll be less likely to break at different resolutions. 
