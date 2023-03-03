@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopUI : MonoBehaviour
+public class ShopShipsUI : MonoBehaviour
 {
     [SerializeField]
     private AllShipsListSO _shipsSO;
@@ -86,7 +86,7 @@ public class ShopUI : MonoBehaviour
         }
         else
         {
-            _cost.text = $"COST: {shipInfo.Cost.ToString()}";
+            _cost.text = $"COST: {shipInfo.Cost}";
             _buyButton.SetActive(true);
         }
         _defense.text = $"DEFENSE: {shipInfo.MaxHealth}";
@@ -108,6 +108,7 @@ public class ShopUI : MonoBehaviour
 
             // ShipShopUI.PopulateMenu(); 
             PopulateShopMenu();
+            DisplayShip(); 
         }
         else
         {

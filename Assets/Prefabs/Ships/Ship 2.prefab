@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3169e80a84fb6244ca2e309ce460423d, type: 3}
-  m_Color: {r: 1, g: 0.5269487, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8baba8821a33db2458973769644d3201, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponPositions:
-  - {fileID: 11400000, guid: 815523609de4edb4e9fd9465e7eaff1e, type: 2}
-  - {fileID: 11400000, guid: 45d36684a4273524db8743928d2197aa, type: 2}
-  - {fileID: 11400000, guid: 8c7b71ad4b4bd0844bbadb7e837c0ae5, type: 2}
+  - {fileID: 11400000, guid: 56b42aee8543dba49ba0305aabada2ed, type: 2}
+  - {fileID: 11400000, guid: 33f6f052b137e4e47bc85c11871dcc15, type: 2}
+  - {fileID: 11400000, guid: a9af00196d74e324d9c030fd43cbc215, type: 2}
 --- !u!114 &54566708557848707
 MonoBehaviour:
   m_ObjectHideFlags: 0

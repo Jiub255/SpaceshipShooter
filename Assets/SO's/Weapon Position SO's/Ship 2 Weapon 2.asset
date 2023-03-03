@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8598ca57338f4947a25453af233226b, type: 3}
-  m_Name: CoinsSO
+  m_Script: {fileID: 11500000, guid: d1af4c32312c055499997acb29d81e65, type: 3}
+  m_Name: Ship 2 Weapon 2
   m_EditorClassIdentifier: 
-  Value: 5000
+  Position: {x: 0, y: 0.5, z: 0}
+  WeaponIndex: 0

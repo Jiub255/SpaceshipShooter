@@ -32,9 +32,9 @@ public class ChooseShipUI : MonoBehaviour
 
     private void OnEnable()
     {
-        PopulateShopMenu();
         _index = 0;
-        DisplayShip();
+        PopulateShopMenu();
+        DisplayShip(); 
 
         ShipButton.OnClickShipButton += SetShip;
     }
@@ -54,7 +54,7 @@ public class ChooseShipUI : MonoBehaviour
     public void NextShip()
     {
         _index++;
-        if (_index > 5)
+        if (_index >= _shipsSO.Ships.Count)
         {
             _index = 0;
         }
@@ -66,7 +66,7 @@ public class ChooseShipUI : MonoBehaviour
         _index--;
         if (_index < 0)
         {
-            _index = 5;
+            _index = _shipsSO.Ships.Count - 1;
         }
         DisplayShip();
     }
@@ -80,6 +80,8 @@ public class ChooseShipUI : MonoBehaviour
         _shipIcon.sprite = _shipsSO.Ships[_index].ShipPrefab.GetComponent<SpriteRenderer>().sprite;
         _defense.text = $"DEFENSE: {shipInfo.MaxHealth}";
         _speed.text = $"SPEED: {shipInfo.Speed}";
+
+        _currentShipSO.currentShipPrefab = _shipsSO.Ships[_index].ShipPrefab;
     }
 
     // Called from UI button. 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Weapon : MonoBehaviour
+public class WeaponInfo : MonoBehaviour
 {
     [SerializeField]
     private string _name = "Enter Weapon Name";
@@ -11,6 +11,8 @@ public class Weapon : MonoBehaviour
 	private float _timeBetweenShots = 0.5f;
     [SerializeField, TextArea(1,20)]
     private string _description = "Enter Weapon Description";
+    [SerializeField]
+    private int _cost;
 
     private float _timer;
     private bool _shootHeldDown = false;
@@ -23,6 +25,7 @@ public class Weapon : MonoBehaviour
     public string Description { get { return _description; } }
     public int Damage { get { return _damage; } }
     public float FireRate { get { return (1 / _timeBetweenShots); } }
+    public int Cost { get { return _cost; } }
 
     private void Start()
     {

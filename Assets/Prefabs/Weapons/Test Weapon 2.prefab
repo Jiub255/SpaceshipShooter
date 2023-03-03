@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6521e477fb6a5734680ed5e2bb407e73, type: 3}
-  m_Color: {r: 0, g: 0.8310709, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 80cc4ed22e19d014888fa3cafd400060, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,10 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8e2334fab190142a398342ff812fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Weapon James
+  _name: Gun
   _bulletPoolTag: {fileID: 11400000, guid: 98d520b9a080df64e8ce540a78dc3efe, type: 2}
-  _timeBetweenShots: 0.35
-  _description: 'Description James. '
+  _timeBetweenShots: 0.62
+  _description: '2nd weapon''s description. '
+  _cost: 10
 --- !u!1 &7029502696082905190
 GameObject:
   m_ObjectHideFlags: 0

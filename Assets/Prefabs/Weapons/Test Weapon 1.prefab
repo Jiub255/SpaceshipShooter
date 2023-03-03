@@ -101,7 +101,8 @@ MonoBehaviour:
   _name: Weapon James
   _bulletPoolTag: {fileID: 11400000, guid: 98d520b9a080df64e8ce540a78dc3efe, type: 2}
   _timeBetweenShots: 0.35
-  _description: 'Description James. '
+  _description: '1st weapon''s description. '
+  _cost: 0
 --- !u!1 &7029502696082905190
 GameObject:
   m_ObjectHideFlags: 0

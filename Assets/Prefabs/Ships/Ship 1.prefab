@@ -168,8 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPositions:
   - {fileID: 11400000, guid: 815523609de4edb4e9fd9465e7eaff1e, type: 2}
-  - {fileID: 11400000, guid: 45d36684a4273524db8743928d2197aa, type: 2}
-  - {fileID: 11400000, guid: 8c7b71ad4b4bd0844bbadb7e837c0ae5, type: 2}
+  - {fileID: 11400000, guid: 20d33bb2a391d224ea6a99485b1c4f5e, type: 2}
+  - {fileID: 11400000, guid: c71c60ab22c3cc74f9ab490012c35b1c, type: 2}
 --- !u!114 &54566708557848707
 MonoBehaviour:
   m_ObjectHideFlags: 0

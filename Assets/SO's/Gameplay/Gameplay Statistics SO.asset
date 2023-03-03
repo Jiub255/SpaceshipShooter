@@ -12,4 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d0a65fae14e0244a921de1c3c6432f, type: 3}
   m_Name: Gameplay Statistics SO
   m_EditorClassIdentifier: 
-  LevelIndex: 0
+  TimePlayed: 0
+  TotalKills: 0
+  Enemy1Kills: 0
+  Enemy2Kills: 0
+  ProjectilesFired: 0
+  Bullet1sFired: 0
+  Bullet2sFired: 0
+  CoinsCollected: 0
+  CoinsSpent: 0
+  MostCoinsHeld: 0

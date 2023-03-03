@@ -9,7 +9,7 @@ public class OutfitShipUI : MonoBehaviour
     [SerializeField, Header("Data")]
     private CurrentShipSO _currentShipSO;
     [SerializeField]
-    private GameplayStatisticsSO _gameplayStatisticsSO;
+    private IntSO _levelIndexSO;
     [SerializeField]
     private AllWeaponsListSO _weaponsSO;
 
@@ -35,9 +35,11 @@ public class OutfitShipUI : MonoBehaviour
     private List<WeaponSlot> _weaponSlots = new();
     private int _slotIndex;
     private WeaponAndGamePositions _weaponAndGamePositions;
+    private GameObject _shipMenuInstance;
 
     public List<GameObject> OwnedWeapons { get { return _ownedWeapons; } }
     public int WeaponIndex { get { return _weaponIndex; } }
+    public int SlotIndex { get { return _slotIndex; } }
 
     private void OnEnable()
     {
@@ -57,6 +59,8 @@ public class OutfitShipUI : MonoBehaviour
             }
         }
 
+        Debug.Log($"Owned weapons: {_ownedWeapons.Count}");
+
         InitializeMenu();
         DisplayWeapon();
     }
@@ -64,21 +68,21 @@ public class OutfitShipUI : MonoBehaviour
     private void InitializeMenu()
     {
         // Instantiate ship menu prefab. 
-        GameObject shipMenuInstance = Instantiate(_shipMenuPrefab, _shipMenuParent);
-        shipMenuInstance.transform.localPosition = Vector3.zero;
+        _shipMenuInstance = Instantiate(_shipMenuPrefab, _shipMenuParent);
+        _shipMenuInstance.transform.localPosition = Vector3.zero;
 
-        List<Vector3> slotPositions = new();
-        foreach (Transform slotPosition in shipMenuInstance.transform)
+        // Instantiate weapon slots and set weapon sprites. 
+        for (int i = 0; i < /*_shipMenuInstance.transform.childCount*/_weaponAndGamePositions.WeaponPositions.Count; i++)
         {
-            slotPositions.Add(slotPosition.localPosition);
-        }
+            // Set weapon sprite. 
+            _shipMenuInstance.transform.GetChild(i).GetComponent<Image>().sprite = 
+                _ownedWeapons[_weaponAndGamePositions.WeaponPositions[i].WeaponIndex].GetComponent<SpriteRenderer>().sprite;
 
-        // Instantiate (and deactivate) weapon slots. 
-        foreach (Vector3 slotPosition in slotPositions)
-        {
-            GameObject slotObject = Instantiate(_weaponSlotPrefab, shipMenuInstance.transform);
-            slotObject.transform.localPosition = slotPosition;
+            // Instantiate weapon slot. 
+            GameObject slotObject = Instantiate(_weaponSlotPrefab, _shipMenuInstance.transform);
+            slotObject.transform.localPosition = _shipMenuInstance.transform.GetChild(i).localPosition;
 
+            // Setup weapon slot, add to list, deactivate. 
             WeaponSlot weaponSlot = slotObject.GetComponent<WeaponSlot>();
             _weaponSlots.Add(weaponSlot);
             weaponSlot.SetupSlot(this);
@@ -91,8 +95,10 @@ public class OutfitShipUI : MonoBehaviour
 
     public void DisplayWeapon()
     {
-        Weapon weapon = _ownedWeapons[_weaponIndex].GetComponent<Weapon>();
+        // Get weapon info. 
+        WeaponInfo weapon = _ownedWeapons[_weaponIndex].GetComponent<WeaponInfo>();
 
+        // Set weapon info in UI. 
         _weaponName.text = weapon.Name;
         _weaponDescription.text = weapon.Description;
         _weaponImage.sprite = weapon.GetComponent<SpriteRenderer>().sprite;
@@ -114,6 +120,10 @@ public class OutfitShipUI : MonoBehaviour
             _slotIndex = 0;
         }
 
+        // Get weapon index of new slot. 
+        _weaponIndex = _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex;
+        DisplayWeapon();
+
         // Activate new current slot. 
         _weaponSlots[_slotIndex].gameObject.SetActive(true);
     }
@@ -130,6 +140,10 @@ public class OutfitShipUI : MonoBehaviour
             _slotIndex = _weaponSlots.Count - 1;
         }
 
+        // Get weapon index of new slot. 
+        _weaponIndex = _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex;
+        DisplayWeapon();
+
         // Activate new current slot. 
         _weaponSlots[_slotIndex].gameObject.SetActive(true);
     }
@@ -145,6 +159,10 @@ public class OutfitShipUI : MonoBehaviour
 
         // Set the WeaponIndex on current slot. 
         _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex = _weaponIndex;
+
+        // Set the weapon sprite. 
+        _shipMenuInstance.transform.GetChild(_slotIndex).GetComponent<Image>().sprite =
+            _ownedWeapons[_weaponIndex].GetComponent<SpriteRenderer>().sprite;
     }
 
     public void PreviousWeapon()
@@ -155,16 +173,21 @@ public class OutfitShipUI : MonoBehaviour
             _weaponIndex = _ownedWeapons.Count - 1;
         }
         DisplayWeapon();
+
         // Set the WeaponIndex on current slot. 
         _weaponAndGamePositions.WeaponPositions[_slotIndex].WeaponIndex = _weaponIndex;
+
+        // Set the weapon sprite. 
+        _shipMenuInstance.transform.GetChild(_slotIndex).GetComponent<Image>().sprite =
+            _ownedWeapons[_weaponIndex].GetComponent<SpriteRenderer>().sprite;
     }
 
     // Called from UI button. 
     public void NextLevel()
     {
-        if (_gameplayStatisticsSO.LevelIndex < SceneManager.sceneCountInBuildSettings)
+        if (_levelIndexSO.Value < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(_gameplayStatisticsSO.LevelIndex);
+            SceneManager.LoadScene(_levelIndexSO.Value);
         }
         else
         {

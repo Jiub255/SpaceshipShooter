@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71176d90e22b9194995b637691c6ce65, type: 3}
-  m_Name: '`Need one of these for each item to be pooled`'
+  m_Name: '`Need one of these for each item to be pooled'
   m_EditorClassIdentifier: 
   DetailedExplanation: 'Need to create a new PoolTagSO for each object you want to
     be pooled. Also need to put a PoolTag script on the object and assign it that

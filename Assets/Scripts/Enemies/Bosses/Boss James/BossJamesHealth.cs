@@ -8,7 +8,7 @@ public class BossJamesHealth : Health
     public static event Action OnBossKilled;
 
     [SerializeField]
-    private GameplayStatisticsSO _gameplayStatisticsSO;
+    private IntSO _levelIndexSO;
 
     public override void Die()
     {
@@ -22,7 +22,7 @@ public class BossJamesHealth : Health
         OnBossKilled?.Invoke();
 
         // Increase level index. 
-        _gameplayStatisticsSO.LevelIndex++;
+        _levelIndexSO.Value++;
 
         // Load shop menu scene. 
         SceneManager.LoadScene("ShopScene");

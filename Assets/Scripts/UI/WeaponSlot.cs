@@ -1,13 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class WeaponSlot : MonoBehaviour
 {
     private OutfitShipUI _outfitShipUI;
-    private Image _weaponImage;
-    private InputAction _moveAction;
 
     private void OnEnable()
     {
@@ -22,7 +18,6 @@ public class WeaponSlot : MonoBehaviour
     public void SetupSlot(OutfitShipUI outfitShipUI)
     {
         _outfitShipUI = outfitShipUI;
-        _weaponImage = GetComponent<Image>();
     }
 
     private void HandleDirectionInput(InputAction.CallbackContext obj)
@@ -70,18 +65,14 @@ public class WeaponSlot : MonoBehaviour
     {
         // Displays weapon in the little selector on the left and the big display on the right. 
         _outfitShipUI.NextWeapon();
-        DisplayWeapon();
+
+        Debug.Log($"Next weapon, slot: {_outfitShipUI.SlotIndex}, weapon: {_outfitShipUI.WeaponIndex}");
     }
 
     public void PreviousWeapon()
     {
         _outfitShipUI.PreviousWeapon();
-        DisplayWeapon();
-    }
 
-    private void DisplayWeapon()
-    {
-        GameObject weapon = _outfitShipUI.OwnedWeapons[_outfitShipUI.WeaponIndex];
-        _weaponImage.sprite = weapon.GetComponent<SpriteRenderer>().sprite;
+        Debug.Log($"Previous weapon, slot: {_outfitShipUI.SlotIndex}, weapon: {_outfitShipUI.WeaponIndex}");
     }
 }
