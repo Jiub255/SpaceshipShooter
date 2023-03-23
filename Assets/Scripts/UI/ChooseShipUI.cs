@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,9 +30,19 @@ public class ChooseShipUI : MonoBehaviour
     private TextMeshProUGUI _speed;
 
     private int _index;
+    private List<GameObject> _ownedShips = new();
 
     private void OnEnable()
     {
+        // TODO: Make _ownedShips list.
+        foreach (ShipOwned shipOwned in _shipsSO.Ships)
+        {
+            if (shipOwned.Owned)
+            {
+                _ownedShips.Add(shipOwned.ShipPrefab);
+            }
+        }
+
         _index = 0;
         PopulateShopMenu();
         DisplayShip(); 
@@ -54,7 +65,7 @@ public class ChooseShipUI : MonoBehaviour
     public void NextShip()
     {
         _index++;
-        if (_index >= _shipsSO.Ships.Count)
+        if (_index >= _ownedShips.Count)
         {
             _index = 0;
         }
@@ -66,40 +77,48 @@ public class ChooseShipUI : MonoBehaviour
         _index--;
         if (_index < 0)
         {
-            _index = _shipsSO.Ships.Count - 1;
+            _index = _ownedShips.Count - 1;
         }
         DisplayShip();
     }
 
     private void DisplayShip()
     {
-        ShipInfo shipInfo = _shipsSO.Ships[_index].ShipPrefab.GetComponent<ShipInfo>();
+        ShipInfo shipInfo = _ownedShips[_index].GetComponent<ShipInfo>();
 
         _shipName.text = shipInfo.Name;
         _description.text = shipInfo.Description;
-        _shipIcon.sprite = _shipsSO.Ships[_index].ShipPrefab.GetComponent<SpriteRenderer>().sprite;
+        _shipIcon.sprite = _ownedShips[_index].GetComponent<SpriteRenderer>().sprite;
         _defense.text = $"DEFENSE: {shipInfo.MaxHealth}";
-        _speed.text = $"SPEED: {shipInfo.Speed}";
+        _speed.text = $"SPEED: {shipInfo.TopSpeed}";
 
-        _currentShipSO.currentShipPrefab = _shipsSO.Ships[_index].ShipPrefab;
+        _currentShipSO.currentShipPrefab = _ownedShips[_index];
     }
 
     // Called from UI button. 
     public void SelectShip()
     {
-        _currentShipSO.currentShipPrefab = _shipsSO.Ships[_index].ShipPrefab;
+        _currentShipSO.currentShipPrefab = _ownedShips[_index];
     }
 
     private void PopulateShopMenu()
     {
         ClearShopMenu();
 
-       // foreach (ShipOwned ship in _shipsSO.ships)
-        for (int i = 0; i < _shipsSO.Ships.Count; i++)
+        // Hack fix for different indexes in _shipsSO.Ships and _ownedShips. 
+        // Definitely a cleaner way to do this, but this'll do for now. 
+        int ownedShipsIndex = 0;
+        //for (int i = 0; i < _shipsSO.Ships.Count; i++)
+        foreach (ShipOwned ship in _shipsSO.Ships)
         {
-            GameObject slotInstance = Instantiate(_shipButtonPrefab, _buttonParent);
+            if (ship.Owned)
+            {
+                GameObject slotInstance = Instantiate(_shipButtonPrefab, _buttonParent);
 
-            slotInstance.transform.GetComponent<ShipButton>().SetupButton(_shipsSO.Ships[i], i);
+                slotInstance.transform.GetComponent<ShipButton>().SetupButton(ship, ownedShipsIndex);
+
+                ownedShipsIndex++;
+            }
         }
     }
 

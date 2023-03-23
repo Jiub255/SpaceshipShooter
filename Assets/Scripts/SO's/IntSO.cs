@@ -4,5 +4,10 @@ using UnityEngine;
     menuName = "Scriptable Objects/Int SO")]
 public class IntSO : ScriptableObject
 {
-    public int Value; 
+    public int Value;
+
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 }

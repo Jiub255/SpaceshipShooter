@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4539d937312703478d3a87d9968084d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyBulletPoolTag: {fileID: 11400000, guid: 0fe1685e5d4c4944cbd81012cf42c4f5, type: 2}
-  _timeBetweenShots: 0.1
+  _enemyBulletPoolTag: {fileID: 11400000, guid: b23f8d3d6d16686468d76422ef5a79f6, type: 2}
+  _timeBetweenShots: 0.5
+  _launchDirection: {x: 0, y: -1, z: 0}
 --- !u!1 &7105038830521322831
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,5 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f800f62bd620c147b1daf4275b9fbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 7
-  _levelIndexSO: {fileID: 11400000, guid: 71c07288fa072d54883c03cb276c6bd8, type: 2}
+  _maxHealth: 15
+  _lootInfos:
+  - _lootPoolTag: {fileID: 11400000, guid: aff0a111fec07ff44a26e580feb0d9af, type: 2}
+    _numberOfLootItemsDropped: 25
+    _lootSpreadRadius: 2

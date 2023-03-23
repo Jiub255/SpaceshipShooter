@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class ShopMenuManager : MonoBehaviour
 {
 	[SerializeField]
-	private IntSO _levelIndexSO;
+	private LevelIndexSO _levelIndexSO;
 	[SerializeField, Header("Canvases")]
 	private GameObject _shopShipsCanvas;
 	[SerializeField]

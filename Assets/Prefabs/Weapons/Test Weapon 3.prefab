@@ -95,14 +95,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4479617334806618876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa8e2334fab190142a398342ff812fa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e7b911ee9e743f48a56b03a13eca9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Other Gun
-  _bulletPoolTag: {fileID: 11400000, guid: 98d520b9a080df64e8ce540a78dc3efe, type: 2}
-  _timeBetweenShots: 0.09
-  _description: '3rd weapon''s description. '
-  _cost: 50
+  _name: Gun James
+  _bulletPoolTag: {fileID: 11400000, guid: 2d0542875085fbf4aabbc0a7ac671ddb, type: 2}
+  _timeBetweenShots: 0.5
+  _description: 'Stronger bullets. '
+  _cost: 35
+  _launchDirection: {x: 0, y: 1, z: 0}
 --- !u!1 &7029502696082905190
 GameObject:
   m_ObjectHideFlags: 0

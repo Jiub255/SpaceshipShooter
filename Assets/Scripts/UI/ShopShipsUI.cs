@@ -8,6 +8,8 @@ public class ShopShipsUI : MonoBehaviour
     private AllShipsListSO _shipsSO;
     [SerializeField]
     private IntSO _coinsSO;
+    [SerializeField]
+    private TextMeshProUGUI _coinsText;
 
     [SerializeField]
     private GameObject _shipButtonPrefab;
@@ -37,6 +39,7 @@ public class ShopShipsUI : MonoBehaviour
         PopulateShopMenu();
         _index = 0;
         DisplayShip();
+        UpdateCoins();
 
         ShipButton.OnClickShipButton += SetShip;
     }
@@ -44,6 +47,11 @@ public class ShopShipsUI : MonoBehaviour
     private void OnDisable()
     {
         ShipButton.OnClickShipButton -= SetShip;
+    }
+
+    private void UpdateCoins()
+    {
+        _coinsText.text = $"COINS: {_coinsSO.Value}";
     }
 
     private void SetShip(int index)
@@ -90,7 +98,7 @@ public class ShopShipsUI : MonoBehaviour
             _buyButton.SetActive(true);
         }
         _defense.text = $"DEFENSE: {shipInfo.MaxHealth}";
-        _speed.text = $"SPEED: {shipInfo.Speed}";
+        _speed.text = $"SPEED: {shipInfo.TopSpeed}";
     }
 
     public void BuyShip()
@@ -109,6 +117,7 @@ public class ShopShipsUI : MonoBehaviour
             // ShipShopUI.PopulateMenu(); 
             PopulateShopMenu();
             DisplayShip(); 
+            UpdateCoins();
         }
         else
         {

@@ -8,6 +8,8 @@ public class ShopWeaponsUI : MonoBehaviour
     private AllWeaponsListSO _weaponsSO;
     [SerializeField]
     private IntSO _coinsSO;
+    [SerializeField]
+    private TextMeshProUGUI _coinsText;
 
     [SerializeField]
     private GameObject _weaponButtonPrefab;
@@ -37,6 +39,7 @@ public class ShopWeaponsUI : MonoBehaviour
         PopulateShopMenu();
         _index = 0;
         DisplayWeapon();
+        UpdateCoins();
 
         WeaponButton.OnClickWeaponButton += SetWeapon;
     }
@@ -44,6 +47,11 @@ public class ShopWeaponsUI : MonoBehaviour
     private void OnDisable()
     {
         WeaponButton.OnClickWeaponButton -= SetWeapon;
+    }
+
+    private void UpdateCoins()
+    {
+        _coinsText.text = $"COINS: {_coinsSO.Value}";
     }
 
     private void SetWeapon(int index)
@@ -75,7 +83,7 @@ public class ShopWeaponsUI : MonoBehaviour
 
     private void DisplayWeapon()
     {
-        WeaponInfo weaponInfo = _weaponsSO.Weapons[_index].WeaponPrefab.GetComponent<WeaponInfo>();
+        PlayerWeapon weaponInfo = _weaponsSO.Weapons[_index].WeaponPrefab.GetComponent<PlayerWeapon>();
 
         _weaponName.text = weaponInfo.Name;
         _description.text = weaponInfo.Description;
@@ -95,7 +103,7 @@ public class ShopWeaponsUI : MonoBehaviour
 
     public void BuyWeapon()
     {
-        WeaponInfo weaponInfo = _weaponsSO.Weapons[_index].WeaponPrefab.GetComponent<WeaponInfo>();
+        PlayerWeapon weaponInfo = _weaponsSO.Weapons[_index].WeaponPrefab.GetComponent<PlayerWeapon>();
 
         // If you have enough money, 
         if (_coinsSO.Value >= weaponInfo.Cost)
@@ -109,6 +117,7 @@ public class ShopWeaponsUI : MonoBehaviour
             // ShipShopUI.PopulateMenu(); 
             PopulateShopMenu();
             DisplayWeapon(); 
+            UpdateCoins();
         }
         else
         {

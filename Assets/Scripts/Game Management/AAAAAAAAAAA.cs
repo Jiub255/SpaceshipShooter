@@ -4,22 +4,63 @@ class AAAAAAAAAAA
 	FIX:
 	----
 
-	Coins dropping is causing way too much lag. Need to redo that system from scratch. 
+	When first getting to Outfit ship menu, the display on the right shows the default weapon even if the current ships
+		first weapon isn't set to that. 
 
-	Combine the select ship and select weapon screens eventually. Get them both working on their own first. 
+	Make stuff happen on player death. 
+		Have death animations/sounds. 
+		Other stuff?
 
-	Standardize sizes/positions/pivots for everything. Player ships, guns, weapon slot. Don't worry about enemies, they can be unique. 
+	Make all input work on menus (like WASD or arrow keys, using InputActions, not just mouse click events). 
+		Move, select, cancel? 
+
+	Fine tune item magnet.
+
+	Fill out/redesign HUD. 
+		Add HP bar. 
+		Coins.
+		Whatever powerup items you have available.
+		Icons for current buffs/debuffs. 
+
+	Make UI look good/unique. Functionality is there, now make it look good. 
+		Combine the select ship and select weapon screens eventually? Or not. Get them both working on their own first. 	
+
+	Make a variety of different ships/weapons/enemies. 
+		Standardize sizes/positions/pivots for everything. Player ships, guns, weapon slot. Don't worry about enemies, they can be unique. 
 		It'll make the menu way easier, plus it'll be less likely to break at different resolutions. 
-	
-		Ships fit into a 256x256 square. Pivot where you want its center to be in the menu. 
-		Gun fit into a 32x64 rectangle. Pivot on the very bottom middle, where it will attach to the ship. 
-			The weapon slot GOs on the Ship Menu Prefabs have a 100 x 200 size in the transform, and have an image component. 
-		Weapon slot slightly bigger than gun. Pivot so it lines up with gun/ship. Near the bottom. 
+			Ships fit into a 256x256 square. Pivot where you want its center to be in the menu. 
+			Gun fit into a 32x64 rectangle. Pivot on the very bottom middle, where it will attach to the ship. 
+				The weapon slot GOs on the Ship Menu Prefabs have a 100 x 200 size in the transform, and have an image component. 
+			Weapon slot slightly bigger than gun. Pivot so it lines up with gun/ship. Near the bottom. 
+
+	Make some unique "powerup" items. Bombs, invincibility, recover HP, etc. 
+
+	SFX/Music!
+		Ambient scifi nerd music or rock battle music? Maybe the first for levels and the second for bosses. 
+
+	JUICE!!!
+		Particle effects for everything, screen shake when hit/shooting/enemy explodes, SFX for everything, menu animations, popup texts, etc. 
+		When collecting a bunch of coins, have them each make a quiet satisfying pop sound,
+			but have the frequency (both pitch and how often the sound gets played per second) increase until done collecting that batch. 
+
 
 
 
 	TODO:
 	-----
+
+	Since this is made for PC (for now), ie landscape view, make the camera far away so you can see a lot.
+
+	Have the camera take a randomly curving path (which generally tends upward) instead of just going straight up? 
+
+	Use pretty gems instead of coins for currency. Big fancy ones could be worth more than plain little ones. Kinda like the zelda rupee thing.
+
+	Maybe do different theme? Underwater, airplanes, spaceships, alien monsters, fantasy stuff?
+
+	Make different types of projectiles. Like bow shaped "wave" ones, and different bullets, and lasers and bombs, and little drone things, all sorts of stuff. 
+
+	Make prefabs of arrangements of enemies. Like a diagonal line of enemies. Then spawn those randomly instead of random single units. 
+		It'll make it look better, and give better control over gameplay/difficulty. 
 
 	Get rid of the choose ship canvas entirely? Just replace the "Done Shopping" button in the ShopUI scripts to be a "Select Ship" button.
 		Then whichever ship is currently selected will be your ship. 
@@ -63,6 +104,8 @@ class AAAAAAAAAAA
 	Save System
 		Save level index, ships owned, coins, weapons owned, which weapons are on which ships, etc. 
 		Gameplay statistics, time played, kills, bullets shot, every stupid little stat. 
+
+	Maybe add in a "shields" system later? Want to keep it simple though. 
 
 ----------------------------------------------------------------------------
 

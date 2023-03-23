@@ -318,8 +318,12 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
+      propertyPath: _maxTimeBetweenSpawns
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.data[0].Odds
@@ -327,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.data[1].Odds
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.data[2].Odds

@@ -5,7 +5,12 @@ using UnityEngine;
     menuName = "Scriptable Objects/Ships SO")]
 public class AllShipsListSO : ScriptableObject
 {
-	public List<ShipOwned> Ships = new List<ShipOwned>();
+	public List<ShipOwned> Ships = new();
+
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 }
 
 [System.Serializable]

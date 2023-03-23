@@ -9,7 +9,7 @@ public class OutfitShipUI : MonoBehaviour
     [SerializeField, Header("Data")]
     private CurrentShipSO _currentShipSO;
     [SerializeField]
-    private IntSO _levelIndexSO;
+    private LevelIndexSO _levelIndexSO;
     [SerializeField]
     private AllWeaponsListSO _weaponsSO;
 
@@ -100,7 +100,7 @@ public class OutfitShipUI : MonoBehaviour
     public void DisplayWeapon()
     {
         // Get weapon info. 
-        WeaponInfo weapon = _ownedWeapons[_weaponIndex].GetComponent<WeaponInfo>();
+        PlayerWeapon weapon = _ownedWeapons[_weaponIndex].GetComponent<PlayerWeapon>();
 
         // Set weapon info in UI. 
         _weaponName.text = weapon.Name;

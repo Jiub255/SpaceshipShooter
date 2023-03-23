@@ -6,6 +6,11 @@ using UnityEngine;
 public class AllWeaponsListSO : ScriptableObject
 {
     public List<WeaponOwned> Weapons = new();
+
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 }
 
 [System.Serializable]

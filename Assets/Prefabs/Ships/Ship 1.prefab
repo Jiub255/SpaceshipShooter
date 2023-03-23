@@ -167,7 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: USS Sprout
   _description: 'Second ship, slightly better than the first. '
-  _speed: 10
+  _topSpeed: 10
+  _timeToTopSpeed: 0.2
   _maxHealth: 10
   _cost: 5
   _menuPrefab: {fileID: 5410532141278313921, guid: 276d7afe34d383641b11e63b98a396ff, type: 3}

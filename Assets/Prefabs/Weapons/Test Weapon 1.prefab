@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4479617334806618879}
   - component: {fileID: 569584420181124006}
-  - component: {fileID: 4479617334806618878}
+  - component: {fileID: 1992161548182095931}
   m_Layer: 3
   m_Name: Test Weapon 1
   m_TagString: Untagged
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4479617334806618878
+--- !u!114 &1992161548182095931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,14 +95,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4479617334806618876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa8e2334fab190142a398342ff812fa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e7b911ee9e743f48a56b03a13eca9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Weapon James
+  _name: Starter Weapon
   _bulletPoolTag: {fileID: 11400000, guid: 98d520b9a080df64e8ce540a78dc3efe, type: 2}
-  _timeBetweenShots: 0.35
-  _description: '1st weapon''s description. '
+  _timeBetweenShots: 0.5
+  _description: 'Default Weapon. '
   _cost: 0
+  _launchDirection: {x: 0, y: 1, z: 0}
 --- !u!1 &7029502696082905190
 GameObject:
   m_ObjectHideFlags: 0

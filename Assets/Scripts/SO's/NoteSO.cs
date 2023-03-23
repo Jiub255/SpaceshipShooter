@@ -8,4 +8,9 @@ public class NoteSO : ScriptableObject
     // Can use this field to add a more detailed explanation. 
     [SerializeField, TextArea(3,20)]
     private string DetailedExplanation;
+
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 }

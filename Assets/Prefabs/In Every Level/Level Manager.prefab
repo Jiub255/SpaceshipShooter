@@ -47,9 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bossPrefab: {fileID: 7105038831823581266, guid: 59c443609f05efa4b9ca614ead09cb91, type: 3}
-  _lerpDuration: 3
-  _waitDuration: 1
-  _levelDuration: 3
+  _levelDuration: 15
 --- !u!114 &166573382109306763
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,13 +17,13 @@ public class WeaponButton : MonoBehaviour
 	private IntSO _coinsSO;
 
 	private WeaponOwned _weapon;
-	private WeaponInfo _weaponInfo;
+	private PlayerWeapon _weaponInfo;
 	private int _index;
 
 	public void SetupButton(WeaponOwned weapon, int index)
 	{
 		_weapon = weapon;
-		_weaponInfo = _weapon.WeaponPrefab.GetComponentInChildren<WeaponInfo>();
+		_weaponInfo = _weapon.WeaponPrefab.GetComponentInChildren<PlayerWeapon>();
 		_weaponIcon.sprite = weapon.WeaponPrefab.GetComponent<SpriteRenderer>().sprite;
 		_name.text = _weaponInfo.Name;
 		_index = index;

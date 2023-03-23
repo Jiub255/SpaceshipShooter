@@ -167,7 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: USS James
   _description: 'Second ship, slightly better than the first. '
-  _speed: 25
+  _topSpeed: 10
+  _timeToTopSpeed: 0.3
   _maxHealth: 55
   _cost: 10
   _menuPrefab: {fileID: 5410532141278313921, guid: 035ac70f3c92a064babd14c11032e410, type: 3}

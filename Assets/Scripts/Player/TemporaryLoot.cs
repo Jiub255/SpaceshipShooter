@@ -14,18 +14,16 @@ public class TemporaryLoot : MonoBehaviour
 
         _playerInfo = GetComponent<PlayerInfo>();
 
-        BossJamesHealth.OnBossKilled += AddLootToSOs;
+        LevelEnder.OnLevelOver += AddLootToSOs;
     }
 
     private void OnDisable()
     {
-        BossJamesHealth.OnBossKilled -= AddLootToSOs;
+        LevelEnder.OnLevelOver -= AddLootToSOs;
     }
 
     private void AddLootToSOs()
     {
-        Debug.Log($"Before coins: {_playerInfo.CoinsSO.Value}");
         _playerInfo.CoinsSO.Value += Coins;
-        Debug.Log($"After coins: {_playerInfo.CoinsSO.Value}");
     }
 }

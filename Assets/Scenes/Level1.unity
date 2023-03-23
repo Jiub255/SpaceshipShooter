@@ -167,9 +167,63 @@ Transform:
   - {fileID: 739593884}
   - {fileID: 1485573888}
   - {fileID: 1709828688}
+  - {fileID: 551425857}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &551425856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 551425857}
+  - component: {fileID: 551425858}
+  m_Layer: 0
+  m_Name: SO Resetter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &551425857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551425856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 20847237}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &551425858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551425856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50816a1d22ca3a1438365be625dd0b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelIndexSO: {fileID: 11400000, guid: d044455d4e2da064db0ce2c9129a1bc6, type: 2}
+  _coinsSO: {fileID: 11400000, guid: ae756fedf22ef3646b1b0206ede51ec5, type: 2}
+  _ship1WAGPSO: {fileID: 11400000, guid: ae0fd92a14274b24c9418168daaffc8b, type: 2}
+  _ship2WAGPSO: {fileID: 11400000, guid: 4476d5b520edb7b49a56e67c8b17e47b, type: 2}
+  _ship3WAGPSO: {fileID: 11400000, guid: cb1ff87e292807f48b8920088bfe6ea0, type: 2}
+  _shipsSO: {fileID: 11400000, guid: fbee02510bb230f48a6740f14036d275, type: 2}
+  _weaponsSO: {fileID: 11400000, guid: 6ca9583d9b3942049b44fec532d7c1a2, type: 2}
+  _currentShipSO: {fileID: 11400000, guid: af0d06d75a815e6409b95ac09fbaa7a5, type: 2}
+  _gameplayStatisticsSO: {fileID: 11400000, guid: 63a6061b2daf9e949bb762ee8870e112, type: 2}
 --- !u!1 &739593883
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,17 +615,21 @@ MonoBehaviour:
   - objectToPool: {fileID: 7890230800131586538, guid: 7f402ed92d75a634591b238216379f86, type: 3}
     amountToPool: 10
   - objectToPool: {fileID: 9016386260147634854, guid: 867d6ba372dca8a47a2afb06a9d31333, type: 3}
-    amountToPool: 100
+    amountToPool: 50
   - objectToPool: {fileID: 835237126318340448, guid: 655ae52d19b94c14d94b3e70db4848b5, type: 3}
     amountToPool: 10
   - objectToPool: {fileID: 3212059076453114651, guid: 490b6f554e29c0548aa8fec263031058, type: 3}
     amountToPool: 10
   - objectToPool: {fileID: 7109008915127323027, guid: 6adbd59d1a0d26a48ba2b4d0f5ca1cc3, type: 3}
     amountToPool: 10
-  - objectToPool: {fileID: 693844423703596011, guid: a620361c94a093a458f07137b9745cb4, type: 3}
-    amountToPool: 100
   - objectToPool: {fileID: 8836463876930405351, guid: 0885a1cd45449c241ae2e470b2ff30f0, type: 3}
     amountToPool: 400
+  - objectToPool: {fileID: 2620174915514412675, guid: d2824216877417b4885fdad14769e4e5, type: 3}
+    amountToPool: 50
+  - objectToPool: {fileID: 73644351350776890, guid: 2f91027210a8c534cbf0450acd60603f, type: 3}
+    amountToPool: 25
+  - objectToPool: {fileID: 867679837747890532, guid: 61508ce662e3e084ab45437a92a130cd, type: 3}
+    amountToPool: 25
 --- !u!1001 &166573382849969019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -581,15 +639,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 166573382109306762, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _levelDuration
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.data[0].Odds
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.data[1].Odds
@@ -597,8 +655,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.data[2].Odds
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
+      propertyPath: _enemyChances.Array.data[1].EnemyPoolTag
+      value: 
+      objectReference: {fileID: 11400000, guid: b6b63591b071d7b409f94757e7c7a3b5, type: 2}
     - target: {fileID: 166573382109306763, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: _enemyChances.Array.data[2].EnemyPoolTag
       value: 
@@ -609,15 +671,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306772, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.048466
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306772, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.100764
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306772, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.304046
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 166573382109306772, guid: 12d4591de0c978b479fe374a0fb17562, type: 3}
       propertyPath: m_LocalRotation.w
